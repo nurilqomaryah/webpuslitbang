@@ -15,9 +15,9 @@
             </div>
             <div class="col-md-3">
                 <h4 style="text-decoration: underline">Ikuti Kami</h4>
-                <p><img class="logo-img" src="{{('images/instagram warna.png')}}" style="width: 20px; height: 20px;"><a href="https://www.instagram.com/puslitbangwasbpkp/" target="_blank" class="white-font cus-font">  @puslitbangwasbpkp</a></p>
-                <p><img class="logo-img" src="{{('images/youtube.png')}}" style="width: 20px; height: 20px;"><a href="https://www.youtube.com/channel/UCPtx4vWuOIudhrTq93rVzfw" target="_blank" class="white-font cus-font">  Puslitbangwas BPKP</a></p>
-                <p><img class="logo-img" src="{{('images/message.png')}}" style="width: 20px; height: 20px;"><a class="white-font cus-font">  puslitbangwas@bpkp.go.id</a></p>
+                <p><img class="logo-img" src="{{url('/images/instagram warna.png')}}" style="width: 20px; height: 20px;"><a href="https://www.instagram.com/puslitbangwasbpkp/" target="_blank" class="white-font cus-font">  @puslitbangwasbpkp</a></p>
+                <p><img class="logo-img" src="{{url('/images/youtube.png')}}" style="width: 20px; height: 20px;"><a href="https://www.youtube.com/channel/UCPtx4vWuOIudhrTq93rVzfw" target="_blank" class="white-font cus-font">  Puslitbangwas BPKP</a></p>
+                <p><img class="logo-img" src="{{url('/images/message.png')}}" style="width: 20px; height: 20px;"><a class="white-font cus-font">  puslitbangwas@bpkp.go.id</a></p>
                 &nbsp;
                 <p>Jumlah Pengunjung </br>
                 <span style="font-weight: bold; color: #FFA500;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2871</span></p>

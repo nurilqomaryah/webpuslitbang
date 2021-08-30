@@ -8,8 +8,8 @@
                 <div class="row">
                     <a href="https://eos.bpkp.go.id/ipms_pro/kms/insight/id" target="_blank">
                         <figure class="shape-img">
-                            <div class="col-md-2 text-center" style="padding-right: 0px; padding-top: 10px;">
-                                <img src="{{('images/kc2.png')}}" alt style="width: 80%; height: 15%; border-radius: 10px;"/>
+                            <div class="col-md-2 text-center" style="padding-right: 0px; padding-top: 10px; padding-bottom: 10px;">
+                                <img src="{{url('/images/produk/kc2.png')}}" alt style="width: 80%; height: 15%; border-radius: 10px;"/>
                             </div>
                             <div class="col-md-10">
                                 <h4 style="font-weight: bold"><i>Knowledge Center</i></h4>
@@ -31,9 +31,9 @@
                 &nbsp;
                 <div class="row row-space">
                     <div class="col-md-4 text-center">
-                        <a href="./jurnal.php">
+                        <a href="{{url('produk/jurnal')}}">
                             <figure class="hover-img text-center">
-                                <img src="{{('images/journal.jpg')}}" alt style="width: 100%; height: 20%;"/>
+                                <img src="{{url('/images/journal.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Jurnal Pengawasan terbit dua kali setahun (bulan September dan Maret) berisi artikel berupa hasil penelitian dan hasil pemikiran/non penelitian </h6>
                                 </figcaption>
@@ -43,9 +43,9 @@
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <a href="./majalah.php">
+                        <a href="{{url('produk/majalah')}}">
                             <figure class="hover-img">
-                                <img src="{{('images/majalah.jpg')}}" alt style="width: 100%; height: 20%;"/>
+                                <img src="{{url('/images/majalah.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Majalah Seputar Litbang merupakan media komunikasi dan aktualisasi insan Puslitbangwas BPKP mengenai berbagai hal.</h6>
                                 </figcaption>
@@ -55,9 +55,9 @@
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <a href="./hasil.php">
+                        <a href="{{url('produk/hasil')}}">
                             <figure class="hover-img">
-                                <img src="{{('images/laporan2.jpg')}}" alt style="width: 100%; height: 20%;"/>
+                                <img src="{{url('/images/laporan2.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Hasil Penelitian dan Pengembangan (Litbang) yang telah dihasilkan oleh Puslitbangwas BPKP</h6>
                                 </figcaption>
@@ -67,33 +67,39 @@
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <figure class="hover-img">
-                            <img src="{{('images/seminar.jpg')}}" alt style="width: 100%; height: 20%;"/>
-                            <figcaption style="font-family: Calibri; font-size: small;">
-                                <h6>Hasil dari seminar yang dilakukan</h6>
-                            </figcaption>
-                        </figure>
-                        <span>Seminar Hasil Litbang</span>
+                        <a href="{{url('produk/seminar')}}">
+                            <figure class="hover-img">
+                                <img src="{{url('/images/seminar.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <figcaption style="font-family: Calibri; font-size: small;">
+                                    <h6>Hasil dari seminar yang dilakukan</h6>
+                                </figcaption>
+                            </figure>
+                            <span>Seminar Hasil Litbang</span>
+                        </a>
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <figure class="hover-img">
-                            <img src="{{('images/librarycafe.jpg')}}" alt style="width: 100%; height: 20%;"/>
-                            <figcaption>
-                                <h6>Kegiatan sharing session</h6>
-                            </figcaption>
-                        </figure>
-                        <span><i>Library Cafe</i></span>
+                        <a href="{{url('produk/librarycafe')}}">
+                            <figure class="hover-img">
+                                <img src="{{url('/images/librarycafe.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <figcaption>
+                                    <h6>Kegiatan sharing session</h6>
+                                </figcaption>
+                            </figure>
+                            <span><i>Library Cafe</i></span>
+                        </a>
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <figure class="hover-img">
-                            <img src="{{('images/pks.jpg')}}" alt style="width: 100%; height: 20%;"/>
-                            <figcaption style="font-family: Calibri; font-size: small;">
-                                <h6>Hasil Pengetahuan yang dibagikan oleh pegawai Puslitbang</h6>
-                            </figcaption>
-                        </figure>
-                        <span>PKS/PPM</span>
+                        <a href="{{url('produk/ppm')}}">
+                            <figure class="hover-img">
+                                <img src="{{url('/images/pks.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <figcaption style="font-family: Calibri; font-size: small;">
+                                    <h6>Hasil Pengetahuan yang dibagikan oleh pegawai Puslitbang</h6>
+                                </figcaption>
+                            </figure>
+                            <span>PKS/PPM</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -102,28 +108,18 @@
                 <h3 style="font-weight: bold;">Pengumuman</h3>
                 &nbsp;
                 <div class="row">
+                    @foreach($pengumuman as $p)
                     <div class="col-md-12">
-                        <a href="http://www.bpkp.go.id/" target="_blank">
-                        <img src="{{('images/pengumuman/logorakornas2021.jpg')}}" alt style="width: 100%;"/>
+                        <a href="{{$p->link_file}}" target="_blank">
+                            <img src="{{url('/images/pengumuman/'.$p->img_post) }}" alt style="width: 100%;"/>
                         </a>
                     </div>
                     <p>
                         &nbsp;
                     </p>
+                    @endforeach
                     <div class="col-md-12">
-                        <img src="{{('images/pengumuman/Logo_HUT_BPKP__38-1-removebg-preview (1).png')}}" alt style="width: 100%;"/>
-                    </div>
-                    <p>
-                        &nbsp;
-                    </p>
-                    <div class="col-md-12">
-                        <img src="{{('images/pengumuman/Call for Paper - Jurnal Pengawasan_resize.jpeg')}}" alt style="width: 100%;"/>
-                    </div>
-                    <p>
-                        &nbsp;
-                    </p>
-                    <div class="col-md-12">
-                        <a href="#"><button type="button" class="btn btn-orange" style="color: #263C92;">Pengumuman Lainnya</button></a>
+                        <a href="{{url('direktori/pengumuman')}}"><button type="button" class="btn btn-orange" style="color: #263C92;">Pengumuman Lainnya</button></a>
                     </div>
                 </div>
             </div>

@@ -12,8 +12,9 @@ use Response;
 use Illuminate\Support\Facades\Input;
 use Alert;
 use PDF;
-use App\Models\website\User;
+use App\Models\User;
 use App\Models\website\Role;
+use Illuminate\Support\Facades\Hash;
 
 
 class UsersCtrl extends Controller
@@ -32,7 +33,7 @@ class UsersCtrl extends Controller
                 ->join('m_role', 'm_user.id_role', '=', 'm_role.id_role')
                 ->get();
 
-        return view('users.index', compact('users'));
+        return view('crud.users.index', compact('users'));
 
     }
 
@@ -43,13 +44,13 @@ class UsersCtrl extends Controller
      */
     public function create()
     {
-
-        $this->data['id_user'] = DB::table('m_user')
-             ->select('m_user.id_role as id','m_user.nama_user','m_role.nama_role','m_user.username', 'm_user.password','m_user.status')
-             ->join('m_role', 'm_user.id_role', '=', 'm_role.id_role')
+        $this->data['id_role'] = DB::table('m_role')
              ->get();
 
-        return view('users.createuser', $this->data);
+        $this->data['id_user'] = DB::table('m_user')
+             ->get();
+
+        return view('crud.users.createuser', $this->data);
 
     }
 
@@ -62,20 +63,20 @@ class UsersCtrl extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_role'=>'required',
+            'id_role'=>'required',
             'nama_user'=>'required',
             'username'=>'required',
-            'password'=>'required'
+            'password'=>'required|min:5'
         ]);
 
-        $user = new User([
-            'nama_role' => $request->get('nama_role'),
+
+        $user = new Users([
+            'id_role' => $request->get('id_role'),
             'nama_user' => $request->get('nama_user'),
             'username' => $request->get('username'),
-            'password' => $request->get('password'),
-            'status' => $request->get('status'),
+            'password' => Hash::make($request->get('password'))
         ]);
-
+        $user->status = 1;
         $user->save();
         return redirect('/user')->with('success', 'User saved!');
     }
@@ -99,8 +100,14 @@ class UsersCtrl extends Controller
      */
     public function edit($id)
     {
-        $user = Users::find($id);
-        return view('users.edituser', compact('user'));
+        $this->data['role'] = DB::table('m_role')
+             ->get();
+//        $this->data['id_user'] = DB::table('m_user')
+//             ->select('id_user as id','id_role','nama_user','username','password','status')
+//            ->get();
+        $this->data['edit_user'] = Users::find($id);
+
+        return view('crud.users.edituser', $this->data);
     }
 
     /**
@@ -113,21 +120,21 @@ class UsersCtrl extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_role'=>'required',
+            'id_role'=>'required',
             'nama_user'=>'required',
             'username'=>'required',
-            'password'=>'required'
+            'password'=>'required|min:5'
         ]);
 
         $user = Users::find($id);
-        $user->nama_role = $request->get('nama_role');
+        $user->id_role = $request->get('id_role');
         $user->nama_user = $request->get('nama_user');
         $user->username = $request->get('username');
-        $user->password = $request->get('password');
+        $user->password = Hash::make($request->get('password'));
         $user->status = $request->get('status');
         $user->save();
 
-        return redirect('/users')->with('success', 'User updated!');
+        return redirect('/user')->with('success', 'User updated!');
     }
 
 

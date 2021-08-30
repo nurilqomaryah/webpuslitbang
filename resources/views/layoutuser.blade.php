@@ -16,6 +16,7 @@
             scroll-behavior: smooth;
         }
     </style>
+
 </head>
 <body>
     @include('home/main-menu')
@@ -28,8 +29,8 @@
 <script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/slick-1.8.1/slick/slick.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('js/jssor.js')}}></script>
-<script src="{{('https://unpkg.com/aos@next/dist/aos.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/jssor.js')}}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     $(document).ready(function() {
         var dialogShown = localStorage.getItem('dialogShown')

@@ -1,0 +1,18 @@
+@extends('.layoutuser')
+
+@section('main')
+<div class="container" style="padding: 4em;">
+    <h3 class="text-center" style="font-weight: bold">Majalah Seputar Litbang</h3>
+    &nbsp;
+    <div class="row text-center">
+        @foreach($majalah as $m)
+        <div class="col-md-3">
+            <img src="{{url('/images/majalah/'.$m->img_post)}}" style="width: 60%;">
+            <h5 style="color: #0c0c0c; font-weight: bold; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;">{{$m->judul_post}}</h5>
+            <a href="{{$m->link_file}}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Unduh Majalah</button></a>
+        </div>
+        @endforeach
+    </div>
+    &nbsp;
+</div>
+@endsection

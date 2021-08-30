@@ -16,21 +16,22 @@
                                     <li data-target="#myCarousel" data-slide-to="2"></li>
                                 </ol>
                                 <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img src="./image/infografis/infograph1.png" class="tales-info">
+                                    <?php $first = true; ?>
+                                    @foreach($info as $i)
+                                        @if($first)
+                                            <div class="item active">
+                                                <?php $first = false; ?>
+                                                @else
+                                                    <div class="item">
+                                        @endif
+                                        <img src="{{url('/images/infografis/'.$i->img_post)}}" class="tales-info">
                                     </div>
-
-                                    <div class="item">
-                                        <img src="./image/infografis/simda.png" class="tales-info">
-                                    </div>
-                                    <div class="item">
-                                        <img src="./image/infografis/INFOGRAFIS_INFORMASI.jpg" class="tales-info">
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer" style="background-color: #ffffff;">
-                            <a href="http://www.bpkp.go.id/infografis" style="font-weight: bold; color: #0c199c;">Infografis Lainnya
+                            <a href="http://www.bpkp.go.id/infografis" style="font-weight: bold; color: #0c199c;" target="_blank">Infografis Lainnya
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
                         </div>
@@ -49,18 +50,22 @@
                                     <li data-target="#myCarousel" data-slide-to="1"></li>
                                 </ol>
                                 <div class="carousel-inner">
-                                    <div class="item active">
-                                        <video src="./image/videografis/ruangan_puslitbangwas.mp4" class="tales-info"></video>
+                                    <?php $first = true; ?>
+                                    @foreach($video as $v)
+                                        @if($first)
+                                            <div class="item active">
+                                                <?php $first = false; ?>
+                                                @else
+                                                    <div class="item">
+                                                        @endif
+                                                        <video src="{{url('/images/videografis/'.$v->img_post)}}" class="tales-info">
                                     </div>
-
-                                    <div class="item">
-                                        <video src="./image/videografis/bajuku_etikaku.mp4" class="tales-info"></video>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer" style="background-color: #ffffff;">
-                            <a href="#" style="font-weight: bold; color: #0c199c;">Videografis Lainnya
+                            <a href="{{url('videografis')}}" style="font-weight: bold; color: #0c199c;">Videografis Lainnya
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
                         </div>
@@ -68,7 +73,7 @@
                 </div>
                 <div>
                     <h4 style="font-weight: bold">Video Terbaru</h4>
-                    <iframe width="100%" height="30%" class="col-md-5" style="padding-top: 20px;" src="https://www.youtube.com/embed/ni3QjRcjxwY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="40%" class="col-md-5" style="padding-top: 20px;" src="https://www.youtube.com/embed/ni3QjRcjxwY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
