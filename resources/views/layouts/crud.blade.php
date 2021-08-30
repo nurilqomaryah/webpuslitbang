@@ -1,18 +1,15 @@
 <html>
     <head>
-        <title>INV-PN | @yield('pageTitle')</title>
-        <meta name="description" content="Aplikasi Inventarisasi Piutang Negara">
-        <meta name="keywords" content="DJKN, PN, Piutang, Piutang Negara">
-        <meta name="author" content="DJKN | Piutang Negara dan Kekayaan Negara Lainnya | @lastaegis">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/templatecrud/sb-admin-2.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/templatecrud/bootstrap.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/templatecrud/custom-styles.css') }}"/>
     </head>
     <body id="page-top">
     <div id="wrapper">
-        @include('sidebar')
+        @include('layouts.sidebar')
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                @include('menu.top-menu')
+{{--                @include('menu.top-menu')--}}
                 <div class="container-fluid">
                     @yield('main')
                 </div>

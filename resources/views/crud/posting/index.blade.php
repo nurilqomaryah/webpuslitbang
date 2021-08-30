@@ -1,4 +1,4 @@
-@extends('layoutcrud')
+@extends('layouts.crud')
 <div>
     <a style="margin: 19px;" href="{{route('PostingCtrl.create')}}" class="btn btn-primary">New Post</a>
 </div>

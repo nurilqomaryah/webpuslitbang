@@ -10,15 +10,19 @@
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
+        <a class="nav-link" href="{{url('dashboardadmin')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{url('manajemenuser')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Management User</span></a>
     </li>
-
     <li class="nav-item">
         <a class="nav-link" href="{{url('')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>

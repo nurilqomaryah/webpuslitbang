@@ -1,4 +1,4 @@
-@extends('.layoutuser')
+@extends('layouts.homepage')
 
 @section('main')
 <div class="container" style="padding: 2em; text-align: justify;">

@@ -133,4 +133,26 @@ class PostingCtrl extends Controller
             ->get();
         return view('home.videografis',compact('video',));
     }
+
+    public function dash()
+    {
+        $namauser = DB::table('m_user')
+            ->select('m_user.id_user','m_user.id_role','m_user.nama_user')
+            ->where('m_user.id_role','=',1)
+            ->first();
+        $jumlahberita = DB::table('t_post')
+            ->where('t_post.id_tag','=',3)
+            ->count();
+        $jumlahjurnal = DB::table('t_post')
+            ->where('t_post.id_kategori','=',1)
+            ->count();
+        $jumlahmajalah = DB::table('t_post')
+            ->where('t_post.id_kategori','=',2)
+            ->count();
+        $jumlahartikel = DB::table('t_post')
+            ->where('t_post.id_tag','=',4)
+            ->count();
+        return view('dashboard',compact('jumlahberita','namauser','jumlahjurnal','jumlahmajalah','jumlahartikel'));
+    }
+
 }

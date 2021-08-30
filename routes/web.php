@@ -50,6 +50,9 @@ Route::get('direktori/galeri', [website\DirektoriCtrl::class, 'galeri']);
 Route::get('kontak', [website\KontakFaqCtrl::class, 'kontak']);
 Route::get('faq', [website\KontakFaqCtrl::class, 'faq']);
 
+//Route Dashboard
+Route::get('dashboardadmin',[website\PostingCtrl::class,'dash']);
+
 //Route CRUD
 
 //Route::get('user', [website\UsersCtrl::class, 'index']);

@@ -1,4 +1,4 @@
-@extends('.layoutuser')
+@extends('layouts.homepage')
 
 @section('main')
 
