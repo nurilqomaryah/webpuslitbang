@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Auth::routes();
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('login', [Auth\LoginController::class, 'index']);
+Route::resource('logins','Auth\LoginController');
+
 //Route Beranda
 Route::get('home', [website\PostingCtrl::class, 'home']);
 Route::get('produk/jurnal', [website\ProdukCtrl::class, 'journal']);
@@ -47,7 +53,8 @@ Route::get('direktori/artikel', [website\DirektoriCtrl::class, 'artikel']);
 Route::get('direktori/galeri', [website\DirektoriCtrl::class, 'galeri']);
 
 //Route Contact Us dan FAQ
-Route::get('kontak', [website\KontakFaqCtrl::class, 'kontak']);
+Route::get('kontak', [website\KontakFaqCtrl::class, 'showContact']);
+Route::post('kontak', [website\KontakFaqCtrl::class,'sendMail']);
 Route::get('faq', [website\KontakFaqCtrl::class, 'faq']);
 
 //Route Dashboard
@@ -60,11 +67,13 @@ Route::get('dashboardadmin',[website\PostingCtrl::class,'dash']);
 //Route::get('post', [website\PostingCtrl::class,'index']);
 //Route::post('post/proses', [website\PostingCtrl::class,'store']);
 
-Route::get('login', [Auth\LoginController::class, 'index']);
-Route::resource('logins','Auth\LoginController');
-
 Route::get('manajemenuser', [Auth\RegisterController::class, 'index']);
 Route::resource('users','Auth\RegisterController');
-
-//Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('manajemenpost', [website\PostingCtrl::class, 'index']);
+Route::resource('posts','website\PostingCtrl');
+Route::get('manajemenrole', [website\RoleCtrl::class, 'index']);
+Route::resource('roles','website\RoleCtrl');
+Route::get('manajemencategory', [website\CategoryCtrl::class, 'index']);
+Route::resource('categories','website\CategoryCtrl');
+Route::get('manajementag', [website\TagCtrl::class, 'index']);
+Route::resource('tags','website\TagCtrl');

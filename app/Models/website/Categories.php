@@ -9,6 +9,6 @@ class Categories extends Model
     protected $table = 'ref_kategori';
     protected $primaryKey = 'id_kategori';
     public $timestamps = false;
-    protected $fillable = ['nama_kategori'];
+    protected $fillable = ['id_kategori','nama_kategori'];
 
 }

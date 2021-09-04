@@ -21,72 +21,140 @@ class PostingCtrl extends Controller
     public function index()
     {
         $posts = DB::table('t_post')
-                ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.img_post','ref_kategori.nama_kategori','ref_tag.nama_tag')
+                ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.img_post','t_post.link_file','t_post.tgl_post','ref_kategori.nama_kategori','ref_tag.nama_tag','m_user.nama_user')
                 ->join('ref_kategori', 't_post.id_kategori', '=', 'ref_kategori.id_kategori')
                 ->join('ref_tag','t_post.id_tag','=','ref_tag.id_tag')
+                ->join('m_user','t_post.id_user','=','m_user.id_user')
                 ->get();
 
-        return view('posting.index', compact('posts'));
+        return view('crud.posting.index', compact('posts'));
     }
 
     public function create()
     {
-        $this->data['id_post'] = DB::table('t_post')
-            ->select('m_user.id_role as id','m_user.nama_user','m_role.nama_role','m_user.username', 'm_user.password','m_user.status')
-            ->join('m_role', 'm_user.id_role', '=', 'm_role.id_role')
+        $this->data['id_user'] = DB::table('m_user')
+             ->get();
+
+        $this->data['id_kategori'] = DB::table('ref_kategori')
             ->get();
 
-        return view('posting.createpost', $this->data);
+        $this->data['id_tag'] = DB::table('ref_tag')
+            ->get();
+
+        $this->data['id_post'] = DB::table('t_post')
+            ->get();
+
+        return view('crud.posting.createpost', $this->data);
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'judul_post'=>'required',
+            'img_post'=>'required',
+            'id_tag'=>'required'
         ]);
 
-        $post = new Post([
-            'judul_post' => $request->get('judul_post'),
-            'isi_post' => $request->get('isi_post'),
-            'img_post' => $request->get('img_post'),
-            'nama_kategori' => $request->get('nama_kategori'),
-            'nama_tag' => $request->get('nama_tag'),
+        $judulPost = $request->get('judul_post');
+        $isiPost = $request->get('isi_post');
+        $imgPost = $request->get('img_post');
+        $linkFile = $request->get('link_file');
+        $namaKategori = $request->get('nama_kategori');
+        $namaTag = $request->get('nama_tag');
+
+        $post = new Posting([
+            'judul_post' => $judulPost,
+            'isi_post' => $isiPost,
+            'img_post' => $imgPost,
+            'link_file' => $linkFile,
+            'nama_kategori' => $namaKategori,
+            'nama_tag' => $namaTag,
         ]);
 
-        $tujuan_upload = 'images';
-        $post->move($tujuan_upload,$post->getClientOriginalName());
+        $tujuan_upload = 'images/'.strtolower('nama_kategori');
+        $post->move($tujuan_upload,$imgPost->getClientOriginalName());
         $post->save();
-        return redirect('/post')->with('success', 'Post saved!');
+        return redirect('/manajemenpost')->with('success', 'Post saved!');
     }
 
     public function edit($id)
     {
-        $post = Posting::find($id);
-        return view('posting.editpost', compact('post'));
+        $this->data['user'] = DB::table('m_user')
+            ->get();
+
+        $this->data['kategori'] = DB::table('ref_kategori')
+            ->get();
+
+        $this->data['tag'] = DB::table('ref_tag')
+            ->get();
+
+        $this->data['edit_post'] = Posting::find($id);
+
+        return view('crud.posting.editpost', $this->data);
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'judul_post'=>'required',
+            'img_post'=>'required',
+            'id_tag'=>'required'
         ]);
 
         $post = Posting::find($id);
-        $post->judul_post = $request->get('judul_post');
-        $post->isi_post = $request->get('isi_post');
-        $post->img_post = $request->get('img_post');
-        $post->nama_kategori = $request->get('nama_kategori');
-        $post->nama_tag = $request->get('nama_tag');
-        $post->save();
+        $judulPost = $this->get('judul_post');
 
-        return redirect('/post')->with('success', 'Post updated!');
+
+        $isiPost = $this->get('isi_post');
+
+
+        $imgPost = $this->get('img_post');
+
+
+        $linkFile = $this->get('link_file');
+
+
+        $namaKategori = $this->get('nama_kategori');
+
+
+        $namaTag = $this->get('nama_tag');
+
+
+        if($imgPost === "")
+        {
+            $post->judul_post = $judulPost;
+            $post->isi_post = $isiPost;
+            $post->link_file = $linkFile;
+            $post->nama_kategori = $namaKategori;
+            $post->nama_tag = $namaTag;
+        }
+        else
+        {
+            $post->judul_post = $judulPost;
+            $post->isi_post = $isiPost;
+            $post->img_post = $imgPost;
+            $post->link_file = $linkFile;
+            $post->nama_kategori = $namaKategori;
+            $post->nama_tag = $namaTag;
+        }
+
+        $post->save();
+        return redirect('/manajemenpost')->with('success', 'Post updated!');
+
+//        $post->judul_post = $request->get('judul_post');
+//        $post->isi_post = $request->get('isi_post');
+//        $post->img_post = $request->get('img_post');
+//        $post->link_file = $request->get('link_file');
+//        $post->nama_kategori = $request->get('nama_kategori');
+//        $post->nama_tag = $request->get('nama_tag');
+
     }
 
     public function destroy($id)
     {
         $post = Posting::find($id);
         $post->delete();
-        return redirect('/post')->with('success', 'Post deleted!');
+        return redirect('/manajemenpost')->with('success', 'Post deleted!');
     }
 
     public function home()

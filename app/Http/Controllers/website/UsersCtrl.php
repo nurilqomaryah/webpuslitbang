@@ -151,8 +151,4 @@ class UsersCtrl extends Controller
         return redirect('/user')->with('success', 'User deleted!');
     }
 
-
-
-
-
 }

@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tutorial Laravel #30 : Membuat Upload File Dengan Laravel</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@extends('layouts.crud')
 
-</head>
-<body>
+@section('main')
 <div class="row">
-    <div class="container">
-        <h2 class="text-center my-5">Tutorial Laravel #30 : Membuat Upload File Dengan Laravel</h2>
-        <div class="col-lg-8 mx-auto my-5">
+    <div class="col-sm-8 offset-sm-2">
+        <h3 class="display-3">Tambah Post</h3>
+        &nbsp;
+        <div>
             @if(count($errors) > 0)
                 <div class="alert alert-danger">
                     @foreach ($errors->all() as $error)
@@ -17,32 +13,46 @@
                     @endforeach
                 </div>
             @endif
-            <form action="/upload/proses" method="POST" enctype="multipart/form-data">
+            <form action="{{route('posts.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <b>Judul Post</b><br/>
-                    <input type="text" name="judul_post">
+                    <b>Kategori</b><br/>
+                    <select name="id_kategori" class="form-control" id="id_kategori" autofocus>
+                        <option value="">{{'--Pilih Kategori--'}}</option>
+                        @foreach($id_kategori as $key)
+                            <option value="{{$key->id_kategori}}">{{$key->nama_kategori}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <b>Judul Post*</b><br/>
+                    <input type="text" class="form-control" name="judul_post"/>
                 </div>
                 <div class="form-group">
                     <b>Isi Post</b>
                     <textarea class="form-control" name="isi_post"></textarea>
                 </div>
                 <div class="form-group">
-                    <b>File Gambar</b><br/>
-                    <input type="file" name="img_post">
+                    <b>File Gambar*</b><br/>
+                    <input type="file" class="form-control" name="img_post">
                 </div>
                 <div class="form-group">
-                    <b>Kategori</b><br/>
-                    <input type="text" name="nama_kategori">
+                    <b>Link File</b><br/>
+                    <input type="text" class="form-control" name="link_file"/>
                 </div>
                 <div class="form-group">
-                    <b>Tag</b><br/>
-                    <input type="text" name="nama_tag">
+                    <b>Tag*</b><br/>
+                    <select name="id_tag" class="form-control" id="id_tag" autofocus>
+                        <option value="">{{'--Pilih Tag--'}}</option>
+                        @foreach($id_tag as $key)
+                            <option value="{{$key->id_tag}}">{{$key->nama_tag}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <input type="submit" value="Save" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">Tambah Post</button>
             </form>
         </div>
     </div>
 </div>
-</body>
-</html>
+@endsection
+

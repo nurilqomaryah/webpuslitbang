@@ -33,7 +33,7 @@
                     <div class="col-md-4 text-center">
                         <a href="{{url('produk/jurnal')}}">
                             <figure class="hover-img text-center">
-                                <img src="{{url('/images/journal.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <img src="{{url('/images/produk/journal.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Jurnal Pengawasan terbit dua kali setahun (bulan September dan Maret) berisi artikel berupa hasil penelitian dan hasil pemikiran/non penelitian </h6>
                                 </figcaption>
@@ -45,7 +45,7 @@
                     <div class="col-md-4 text-center">
                         <a href="{{url('produk/majalah')}}">
                             <figure class="hover-img">
-                                <img src="{{url('/images/majalah.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <img src="{{url('/images/produk/majalah.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Majalah Seputar Litbang merupakan media komunikasi dan aktualisasi insan Puslitbangwas BPKP mengenai berbagai hal.</h6>
                                 </figcaption>
@@ -57,7 +57,7 @@
                     <div class="col-md-4 text-center">
                         <a href="{{url('produk/hasil')}}">
                             <figure class="hover-img">
-                                <img src="{{url('/images/laporan2.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <img src="{{url('/images/produk/laporan2.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Hasil Penelitian dan Pengembangan (Litbang) yang telah dihasilkan oleh Puslitbangwas BPKP</h6>
                                 </figcaption>
@@ -69,7 +69,7 @@
                     <div class="col-md-4 text-center">
                         <a href="{{url('produk/seminar')}}">
                             <figure class="hover-img">
-                                <img src="{{url('/images/seminar.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <img src="{{url('/images/produk/seminar.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Hasil dari seminar yang dilakukan</h6>
                                 </figcaption>
@@ -81,7 +81,7 @@
                     <div class="col-md-4 text-center">
                         <a href="{{url('produk/librarycafe')}}">
                             <figure class="hover-img">
-                                <img src="{{url('/images/librarycafe.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <img src="{{url('/images/produk/librarycafe.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption>
                                     <h6>Kegiatan sharing session</h6>
                                 </figcaption>
@@ -93,7 +93,7 @@
                     <div class="col-md-4 text-center">
                         <a href="{{url('produk/ppm')}}">
                             <figure class="hover-img">
-                                <img src="{{url('/images/pks.jpg')}}" alt style="width: 100%; height: 25%;"/>
+                                <img src="{{url('/images/produk/pks.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
                                     <h6>Hasil Pengetahuan yang dibagikan oleh pegawai Puslitbang</h6>
                                 </figcaption>

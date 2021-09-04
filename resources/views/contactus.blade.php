@@ -12,19 +12,20 @@
             &nbsp;
             <p style="text-align: justify">Jika Anda memiliki pertanyaan, saran, atau komentar terkait Puslitbangwas, Anda dapat mengisi form di bawah ini.</p>
                 <form action="#" method="post">
+                    @csrf
                     <div class="form-group">
                         <label>Nama:</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama" />
+                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Anda" />
                     </div>
                     <div class="form-group">
                         <label>Email:</label>
-                        <input type="text" name="email" class="form-control" placeholder="Masukan Email" />
+                        <input type="text" name="email" class="form-control" placeholder="Masukan Email Anda" />
                     </div>
                     <div class="form-group">
-                        <label>Keterangan:</label>
-                        <textarea class='form-control' rows="10" placeholder="Masukan Keterangan"></textarea>
+                        <label>Pesan:</label>
+                        <textarea class='form-control' name="pesan" rows="10" placeholder="Masukan Pesan Anda"></textarea>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
+                    <button class="btn btn-primary btn-block">Kirim</button>
                 </form>
         </div>
         <div class="col-md-6">

@@ -18,6 +18,7 @@
                 @method('PATCH')
                 @csrf
                 <div class="form-group">
+                    <label for="nama_role">Role:</label>
                     <select name="id_role" class="form-control" id="id_role" autofocus>
                         @foreach($role as $key)
                             <option value="{{$key->id_role}}" {{$edit_user->id_role == $key->id_role ? 'selected' : ''}}>{{$key->nama_role}}</option>
@@ -25,7 +26,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="nama_user">Name:</label>
+                    <label for="nama_user">Nama:</label>
                     <input type="text" class="form-control" name="nama_user" value={{ $edit_user->nama_user }} />
                 </div>
                 <div class="form-group">
