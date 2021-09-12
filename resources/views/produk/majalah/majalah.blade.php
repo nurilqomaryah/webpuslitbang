@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <img src="{{url('/images/majalah/'.$m->img_post)}}" style="width: 60%;">
             <h5 style="color: #0c0c0c; font-weight: bold; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;">{{$m->judul_post}}</h5>
-            <a href="{{$m->link_file}}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Unduh Majalah</button></a>
+            <a href="{{$m->link_post}}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Unduh Majalah</button></a>
         </div>
         @endforeach
     </div>

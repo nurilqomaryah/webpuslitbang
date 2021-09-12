@@ -9,6 +9,6 @@ class Tags extends Model
     protected $table = 'ref_tag';
     protected $primaryKey = 'id_tag';
     public $timestamps = false;
-    protected $fillable = ['nama_tag'];
+    protected $fillable = ['id_tag','nama_tag'];
 
 }

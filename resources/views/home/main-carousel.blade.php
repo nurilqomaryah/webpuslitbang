@@ -18,7 +18,7 @@
                         <h3>{{$b->judul_post}}</h3>
                         <p>&nbsp; {{$b->isi_post}}</p>
                         <div class="text-right" style="text-align:right">
-                            <a href="{{$b->link_file}}" target="_blank" class="btn btn-orange" style="color: #263C92">Baca Selengkapnya
+                            <a href="{{$b->link_post}}" target="_blank" class="btn btn-orange" style="color: #263C92">Baca Selengkapnya
                                 <span class="glyphicon glyphicon-arrow-right"></span>
                             </a>
                         </div>

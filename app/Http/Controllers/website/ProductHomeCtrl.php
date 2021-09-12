@@ -15,18 +15,17 @@ use Alert;
 use PDF;
 use App\Models\website\Posting;
 
-class ProdukCtrl extends Controller
+class ProductHomeCtrl extends Controller
 {
 
     public function index()
     {
         $posts = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.img_post','ref_kategori.nama_kategori','ref_tag.nama_tag')
-            ->join('ref_kategori', 't_post.id_kategori', '=', 'ref_kategori.id_kategori')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.img_post','ref_tag.nama_tag')
             ->join('ref_tag','t_post.id_tag','=','ref_tag.id_tag')
             ->get();
 
-        return view('posting.index', compact('posts'));
+        return view('product.index', compact('posts'));
     }
 
     public function create()
@@ -36,7 +35,7 @@ class ProdukCtrl extends Controller
             ->join('m_role', 'm_user.id_role', '=', 'm_role.id_role')
             ->get();
 
-        return view('posting.createpost', $this->data);
+        return view('product.createpost', $this->data);
     }
 
     public function store(Request $request)
@@ -62,7 +61,7 @@ class ProdukCtrl extends Controller
     public function edit($id)
     {
         $post = Posting::find($id);
-        return view('posting.editpost', compact('post'));
+        return view('product.editpost', compact('post'));
     }
 
     public function update(Request $request, $id)
@@ -92,7 +91,7 @@ class ProdukCtrl extends Controller
     public function journal()
     {
         $jurnal = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',1)
             ->where('t_post.id_kategori','=',1)
             ->limit(9)
@@ -103,7 +102,7 @@ class ProdukCtrl extends Controller
     public function majalah()
     {
         $majalah = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',1)
             ->where('t_post.id_kategori','=',2)
             ->limit(9)
@@ -114,7 +113,7 @@ class ProdukCtrl extends Controller
     public function hasil()
     {
         $hasil = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',1)
             ->where('t_post.id_kategori','=',5)
             ->limit(9)

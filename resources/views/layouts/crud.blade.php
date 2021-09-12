@@ -24,7 +24,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright © BPKP | PUSLITBANGWAS NC</span>
+                        <span>Copyright © BPKP | PUSLITBANGWAS - NQ</span>
                     </div>
                 </div>
             </footer>

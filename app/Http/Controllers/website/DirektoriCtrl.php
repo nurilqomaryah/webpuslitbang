@@ -26,7 +26,7 @@ class DirektoriCtrl extends Controller
             ->join('ref_tag','t_post.id_tag','=','ref_tag.id_tag')
             ->get();
 
-        return view('posting.index', compact('posts'));
+        return view('product.index', compact('posts'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class DirektoriCtrl extends Controller
             ->join('m_role', 'm_user.id_role', '=', 'm_role.id_role')
             ->get();
 
-        return view('posting.createpost', $this->data);
+        return view('product.createpost', $this->data);
     }
 
     public function store(Request $request)
@@ -62,7 +62,7 @@ class DirektoriCtrl extends Controller
     public function edit($id)
     {
         $post = Posting::find($id);
-        return view('posting.editpost', compact('post'));
+        return view('product.editpost', compact('post'));
     }
 
     public function update(Request $request, $id)
@@ -122,7 +122,7 @@ class DirektoriCtrl extends Controller
     public function galeri()
     {
         $galeri = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',8)
             ->limit(12)
             ->get();

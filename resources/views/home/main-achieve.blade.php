@@ -3,7 +3,7 @@
         <div class="row">
             @foreach($achieve as $a)
             <div class="col-md-2 text-center col-md-push-4">
-                <a href="{{$a->link_file}}" target="_blank">
+                <a href="{{$a->link_post}}" target="_blank">
                     <img src="{{url('/images/penghargaan/'.$a->img_post)}}" class="img-responsive" alt/>
                 </a>
             </div>

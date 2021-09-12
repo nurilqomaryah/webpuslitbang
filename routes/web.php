@@ -26,9 +26,9 @@ Route::resource('logins','Auth\LoginController');
 
 //Route Beranda
 Route::get('home', [website\PostingCtrl::class, 'home']);
-Route::get('produk/jurnal', [website\ProdukCtrl::class, 'journal']);
-Route::get('produk/majalah', [website\ProdukCtrl::class, 'majalah']);
-Route::get('produk/hasil', [website\ProdukCtrl::class, 'hasil']);
+Route::get('produk/jurnal', [website\ProductHomeCtrl::class, 'journal']);
+Route::get('produk/majalah', [website\ProductHomeCtrl::class, 'majalah']);
+Route::get('produk/hasil', [website\ProductHomeCtrl::class, 'hasil']);
 Route::get('videografis', [website\PostingCtrl::class, 'video']);
 
 //Route Profile
@@ -69,6 +69,8 @@ Route::get('dashboardadmin',[website\PostingCtrl::class,'dash']);
 
 Route::get('manajemenuser', [Auth\RegisterController::class, 'index']);
 Route::resource('users','Auth\RegisterController');
+Route::get('manajemenproduct', [website\ProductCrudCtrl::class, 'index']);
+Route::resource('products','website\ProductCrudCtrl');
 Route::get('manajemenpost', [website\PostingCtrl::class, 'index']);
 Route::resource('posts','website\PostingCtrl');
 Route::get('manajemenrole', [website\RoleCtrl::class, 'index']);

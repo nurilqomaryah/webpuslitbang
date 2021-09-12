@@ -7,7 +7,7 @@
                 <div class="card-header align-items-center justify-content-between">
                     <center><h5 class="m-0 font-weight-bold text-primary">Daftar User</h5></center>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="padding: 4rem;">
                     <div class="d-flex flex-row-reverse">
                         <a style="margin-bottom: 1em;" href="{{ route('users.create')}}" class="btn btn-primary btn-sm pull-right">Tambah User</a>
                     </div>
@@ -45,7 +45,6 @@
                             @endforeach
                             </tbody>
                         </table>
-
                     <div class="col-sm-12">
                         @if(session()->get('success'))
                             <div class="alert alert-success">
@@ -62,6 +61,7 @@
             $('#datatab').DataTable();
         } );
     </script>
+@endsection
 {{--    <div class="row">--}}
 {{--        <div>--}}
 {{--            <a style="margin: 20px;" href="{{ route('users.create')}}" class="btn btn-primary">New User</a>--}}
@@ -112,4 +112,4 @@
 {{--            @endif--}}
 {{--        </div>--}}
 {{--    </div>--}}
-@endsection
+

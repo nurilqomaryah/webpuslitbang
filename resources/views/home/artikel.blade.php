@@ -24,7 +24,7 @@
 {{--                                <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>--}}
 {{--                                    Artikel ini dimuat dalam: </br> Jurnal Pengawasan ISSN 2686-2840 </br> Vol.2, No.2, September 2020 (30-40)</p>--}}
                                 <p>
-                                    <a href="{{$a->link_file}} " target="_blank" style="font-size: 13px;">Baca Selengkapnya</a>
+                                    <a href="{{$a->link_post}} " target="_blank" style="font-size: 13px;">Baca Selengkapnya</a>
                                 </p>
                             </div>
                         </div>

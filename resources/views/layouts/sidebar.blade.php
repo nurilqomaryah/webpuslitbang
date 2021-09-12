@@ -13,7 +13,7 @@
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="{{url('dashboardadmin')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -37,6 +37,11 @@
         <a class="nav-link" href="{{url('manajementag')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Management Tag</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{url('manajemenproduct')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Management Product</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url('manajemenpost')}}">

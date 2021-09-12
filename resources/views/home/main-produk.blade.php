@@ -110,7 +110,7 @@
                 <div class="row">
                     @foreach($pengumuman as $p)
                     <div class="col-md-12">
-                        <a href="{{$p->link_file}}" target="_blank">
+                        <a href="{{$p->link_post}}" target="_blank">
                             <img src="{{url('/images/pengumuman/'.$p->img_post) }}" alt style="width: 100%;"/>
                         </a>
                     </div>

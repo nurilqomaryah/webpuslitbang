@@ -13,7 +13,7 @@
                             <img src="{{url('/images/kegiatan/'.$k->img_post) }}" class="img-responsive">
                             <br/>
                             <p style="color: #ffffff;"><small> {{$k->tgl_post}}</br> Di lihat 3866 kali</small></p>
-                            <a href="{{$k->link_file}}" target="_blank"><button type="button" class="btn btn-orange btn-xs" style="color: #263C92;">Baca Selengkapnya</button></a>
+                            <a href="{{$k->link_post}}" target="_blank"><button type="button" class="btn btn-orange btn-xs" style="color: #263C92;">Baca Selengkapnya</button></a>
                         </div>
                     </div>
                 </div>
