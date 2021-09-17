@@ -11,7 +11,7 @@
             <div class="item">
             @endif
                 <div class="col-sm-6">
-                    <img src="{{url('/images/kegiatan/'.$b->img_post)}}" class="img-responsive">
+                    <img src="{{url('/images/kegiatan/'.$b->img_post)}}" class="img-responsive" style="border-radius: 10% !important">
                 </div>
                 <div class="col-sm-6">
                     <div class="carousel-caption text-justify" style="text-align: justify">
@@ -38,4 +38,3 @@
         </div>
     </div>
 </div>
-

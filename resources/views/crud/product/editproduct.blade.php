@@ -3,7 +3,7 @@
 @section('main')
     <div class="row">
         <div class="col-sm-8 offset-sm-2">
-            <h1 class="display-3">Update a Post</h1>
+            <h1 class="display-3">Update Produk</h1>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label>File Existing:</label>
-                    <img src="{{ asset('storage/'.$edit_post->link_gambar) }}" class="img-responsive"/>
+                    <img src="{{ asset('storage/'.$edit_post->link_gambar) }}" class="img-responsive" width="50%"/>
                 </div>
                 <div class="form-group">
                     <label for="img_post">File Gambar:</label>
@@ -53,7 +53,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Update Data</button>
+                <button type="submit" class="btn btn-primary">Update Produk</button>
             </form>
         </div>
     </div>

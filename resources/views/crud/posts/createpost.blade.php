@@ -1,47 +1,84 @@
 @extends('layouts.crud')
 
 @section('main')
-<div class="row">
-    <div class="col-sm-8 offset-sm-2">
-        <h3 class="display-3">Tambah Post</h3>
-        &nbsp;
-        <div>
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }} <br/>
-                    @endforeach
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Tambah Post') }}</div>
+                <div class="card-body">
+                    <form method="POST" action="{{route('posts.store') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group row">
+                            <label for="judul_post" class="col-md-4 col-form-label text-md-right">{{ __('Judul Post*') }}</label>
+                            <div class="col-md-6">
+                                <input id="judul_post" type="text" class="form-control @error('judul_post') is-invalid @enderror" name="judul_post" value="{{ old('judul_post') }}" autocomplete="judul_post" autofocus>
+                                @error('judul_post')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="isi_post" class="col-md-4 col-form-label text-md-right">{{ __('Isi Post*') }}</label>
+                            <div class="col-md-6">
+                                <textarea id="isi_post" type="text" class="form-control @error('isi_post') is-invalid @enderror" name="isi_post" value="{{ old('isi_post') }}" autocomplete="isi_post" autofocus></textarea>
+                                @error('isi_post')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="img_post" class="col-md-4 col-form-label text-md-right">{{ __('File Gambar*') }}</label>
+                            <div class="col-md-6">
+                                <input id="img_post" type="file" class="form-control @error('img_post') is-invalid @enderror" name="img_post" value="{{ old('img_post') }}" autocomplete="img_post" autofocus>
+                                @error('img_post')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="link_post" class="col-md-4 col-form-label text-md-right">{{ __('Link Post') }}</label>
+                            <div class="col-md-6">
+                                <input id="link_post" type="text" class="form-control @error('link_post') is-invalid @enderror" name="link_post" value="{{ old('link_post') }}" autocomplete="link_post" autofocus>
+                                @error('link_post')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_tag" class="col-md-4 col-form-label text-md-right">{{ __('Tag*') }}</label>
+                            <div class="col-md-6">
+                                <select name="id_tag" class="form-control @error('id_tag') is-invalid @enderror" id="id_tag" autocomplete="id_tag" autofocus>
+                                    <option value="">{{'--Pilih Tag--'}}</option>
+                                    @foreach($id_tag as $key)
+                                        <option value="{{$key->id_tag}}">{{$key->nama_tag}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_tag')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Tambah Post') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            @endif
-            <form action="{{route('posts.store') }}" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <b>Judul Post*</b><br/>
-                    <input type="text" class="form-control" name="judul_post"/>
-                </div>
-                <div class="form-group">
-                    <b>Isi Post</b>
-                    <textarea class="form-control" name="isi_post"></textarea>
-                </div>
-                <div class="form-group">
-                    <b>File Gambar*</b><br/>
-                    <input type="file" class="form-control" name="img_post">
-                </div>
-                <div class="form-group">
-                    <b>Link Post</b><br/>
-                    <input type="text" class="form-control" name="link_post"/>
-                </div>
-                <div class="form-group">
-                    <b>Tag*</b><br/>
-                    <select name="id_tag" class="form-control" id="id_tag" autofocus>
-                        <option value="">{{'--Pilih Tag--'}}</option>
-                        @foreach($id_tag as $key)
-                            <option value="{{$key->id_tag}}">{{$key->nama_tag}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Tambah Post</button>
-            </form>
+            </div>
         </div>
     </div>
 </div>

@@ -10,8 +10,9 @@
     <div class="row text-center">
         @foreach($pengumuman as $p)
         <div class="col-md-3">
-            <a href="{{$p->link_file}}" target="_blank">
-                <img src="{{url('/images/pengumuman/'.$p->img_post)}}" style="width: 80%;">
+            <a href="{{$p->link_post}}" target="_blank">
+{{--                <img src="{{url('/images/Pengumuman/'.$p->img_post)}}" style="width: 80%;">--}}
+                <img src="{{ asset('storage/'.$p->link_gambar) }}" style="width: 80%;">
             </a>
         </div>
         @endforeach

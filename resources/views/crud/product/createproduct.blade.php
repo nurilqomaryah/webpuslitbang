@@ -3,7 +3,7 @@
 @section('main')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h3 class="display-3">Tambah Post</h3>
+        <h3 class="display-3">Tambah Produk</h3>
         &nbsp;
         <div>
             @if(count($errors) > 0)
@@ -49,7 +49,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Tambah Post</button>
+                <button type="submit" class="btn btn-primary">Tambah Produk</button>
             </form>
         </div>
     </div>

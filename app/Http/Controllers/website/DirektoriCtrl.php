@@ -92,17 +92,17 @@ class DirektoriCtrl extends Controller
     public function pengumuman()
     {
         $pengumuman = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',2)
             ->limit(9)
             ->get();
-        return view('direktori.pengumuman',compact('pengumuman'));
+        return view('direktori.Pengumuman',compact('pengumuman'));
     }
 
     public function kegiatan()
     {
         $berita = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',3)
             ->limit(9)
             ->get();
@@ -112,7 +112,7 @@ class DirektoriCtrl extends Controller
     public function artikel()
     {
         $artikel = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_file')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',4)
             ->limit(9)
             ->get();

@@ -21,8 +21,9 @@ Route::get('/', function () {
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('login', [Auth\LoginController::class, 'index']);
+Route::get('login', [Auth\LoginController::class, 'index'])->name('login');
 Route::resource('logins','Auth\LoginController');
+Route::post('login/submit',[Auth\LoginController::class,'onSubmit'])->name('login.submit');
 
 //Route Beranda
 Route::get('home', [website\PostingCtrl::class, 'home']);
@@ -47,7 +48,7 @@ Route::get('informasi/setiap_saat', [website\InformasiCtrl::class, 'setiapsaat']
 Route::get('informasi/berkala', [website\InformasiCtrl::class, 'berkala']);
 
 //Route Direktori
-Route::get('direktori/pengumuman', [website\DirektoriCtrl::class, 'pengumuman']);
+Route::get('direktori/Pengumuman', [website\DirektoriCtrl::class, 'pengumuman']);
 Route::get('direktori/kegiatan', [website\DirektoriCtrl::class, 'kegiatan']);
 Route::get('direktori/artikel', [website\DirektoriCtrl::class, 'artikel']);
 Route::get('direktori/galeri', [website\DirektoriCtrl::class, 'galeri']);
@@ -58,7 +59,8 @@ Route::post('kontak', [website\KontakFaqCtrl::class,'sendMail']);
 Route::get('faq', [website\KontakFaqCtrl::class, 'faq']);
 
 //Route Dashboard
-Route::get('dashboardadmin',[website\PostingCtrl::class,'dash']);
+Route::get('dashboardadmin',[website\DashboardCtrl::class,'dashadmin'])->name('dashboardadmin');
+Route::get('dashboardauthor',[website\DashboardCtrl::class,'dashauthor'])->name('dashboardauthor');
 
 //Route CRUD
 

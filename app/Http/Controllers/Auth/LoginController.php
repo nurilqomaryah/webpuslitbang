@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -46,6 +49,33 @@ class LoginController extends Controller
     public function index()
     {
         return view('auth.login');
+    }
+
+    public function onSubmit(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $user = new User();
+        $result = $user->checkUser($username);
+
+        if(Hash::check($password, $result[0]->password))
+        {
+            $request->session()->put('id_user', $result[0]->id_user);
+            $request->session()->put('role',$result[0]->id_role);
+            $request->session()->put('nama', $result[0]->nama_user);
+            if($result[0]->id_role == 1)
+            {
+                return redirect()
+                    ->route('dashboardadmin');
+            }
+            else
+            {
+                // Redirect ke halaman author
+                return redirect()
+                    ->route('dashboardauthor');
+            }
+        }
     }
 
 

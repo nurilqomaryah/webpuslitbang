@@ -16,7 +16,7 @@
         @include('layouts.sidebar')
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-{{--                @include('menu.top-menu')--}}
+                @include('layouts.top-menu')
                 <div class="container">
                     @yield('main')
                 </div>

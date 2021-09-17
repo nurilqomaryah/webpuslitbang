@@ -95,7 +95,8 @@ class RegisterController extends Controller
             'id_role' => $request->get('id_role'),
             'nama_user' => $request->get('nama_user'),
             'username' => $request->get('username'),
-            'password' => Hash::make($request->get('password'))
+            'password' => Hash::make($request->get('password')),
+        //    'status' => 1
         ]);
         $user->status = 1;
         $user->save();
@@ -117,7 +118,6 @@ class RegisterController extends Controller
             'id_role'=>'required',
             'nama_user'=>'required',
             'username'=>'required',
-            'password'=>'required|min:5'
         ]);
 
         $user = User::find($id);

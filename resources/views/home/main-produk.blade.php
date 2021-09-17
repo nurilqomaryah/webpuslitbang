@@ -111,7 +111,7 @@
                     @foreach($pengumuman as $p)
                     <div class="col-md-12">
                         <a href="{{$p->link_post}}" target="_blank">
-                            <img src="{{url('/images/pengumuman/'.$p->img_post) }}" alt style="width: 100%;"/>
+                            <img src="{{url('/images/Pengumuman/'.$p->img_post) }}" alt style="width: 100%;"/>
                         </a>
                     </div>
                     <p>
@@ -119,7 +119,7 @@
                     </p>
                     @endforeach
                     <div class="col-md-12">
-                        <a href="{{url('direktori/pengumuman')}}"><button type="button" class="btn btn-orange" style="color: #263C92;">Pengumuman Lainnya</button></a>
+                        <a href="{{url('direktori/Pengumuman')}}"><button type="button" class="btn btn-orange" style="color: #263C92;">Pengumuman Lainnya</button></a>
                     </div>
                 </div>
             </div>

@@ -53,7 +53,7 @@ class KontakFaqCtrl extends Controller
             $mail->isSMTP();                                      // Set mailer to use SMTP
             $mail->Host = 'smtp.gmail.com';                  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'nurilqomaryah01@gmail.com';                 // SMTP username
+            $mail->Username = 'nuril.qomaryah.95@gmail.com';                 // SMTP username
             $mail->Password = 'Nuril11213';                           // SMTP password
             $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                    // TCP port to connect to
@@ -62,7 +62,7 @@ class KontakFaqCtrl extends Controller
             $mail->setFrom($emailAddress, $name);
 
             // Siapa yang akan menerima email
-            $mail->addAddress('nurilqomaryah01@gmail.com', 'Nuril Tes');     // Add a recipient
+            $mail->addAddress('nuril.qomaryah.95@gmail.com', 'Nuril Tes');     // Add a recipient
             // $mail->addAddress('ellen@example.com');               // Name is optional
 
             // ke siapa akan kita balas emailnya
@@ -84,7 +84,7 @@ class KontakFaqCtrl extends Controller
 
             $mail->send();
 
-            $request->session()->flash('status', 'Terima kasih, kami sudah menerima email anda.');
+            $request->session()->flash('status', 'Terima kasih, kami sudah menerima email Anda.');
             return view('contactus');
 
         } catch (Exception $e) {

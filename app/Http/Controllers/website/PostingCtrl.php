@@ -59,6 +59,7 @@ class PostingCtrl extends Controller
         $imgPost = $request->file('img_post')->getClientOriginalName();
         $idTag = $request->get('id_tag');
         $linkPost = $request->get('link_post');
+        $idUser = $request->session()->get('id_user');
 
         // Logic Upload dimulai dari sini
         $namaTag = $this->__changeIdTagToString($idTag);
@@ -69,7 +70,7 @@ class PostingCtrl extends Controller
         // Logic upload selesai
 
         $post = new Posting([
-            'id_user'=> 1,
+            'id_user'=> $idUser,
             'judul_post' => $judulPost,
             'isi_post' => $isiPost,
             'img_post' => $imgPost,
@@ -100,7 +101,6 @@ class PostingCtrl extends Controller
     {
         $request->validate([
             'judul_post'=>'required',
-            'img_post'=>'required',
             'id_tag'=>'required',
         ]);
 
@@ -109,6 +109,7 @@ class PostingCtrl extends Controller
         $isiPost = $request->get('isi_post');
         $linkPost = $request->get('link_post');
         $idTag = $request->get('id_tag');
+        $idUser = $request->session()->get('id_user');
 
         if(empty($request->file('img_post')))
         {
@@ -116,6 +117,7 @@ class PostingCtrl extends Controller
             $post->isi_post = $isiPost;
             $post->link_post = $linkPost;
             $post->id_tag = $idTag;
+            $post->id_user = $idUser;
         }
         else
         {
@@ -134,6 +136,7 @@ class PostingCtrl extends Controller
             $post->link_gambar = str_replace('public','',$upload);
             $post->link_post = $linkPost;
             $post->id_tag = $idTag;
+            $post->id_user = $idUser;
         }
 
         $post->save();
@@ -190,27 +193,6 @@ class PostingCtrl extends Controller
             ->limit(3)
             ->get();
         return view('home.videografis',compact('video',));
-    }
-
-    public function dash()
-    {
-        $namauser = DB::table('m_user')
-            ->select('m_user.id_user','m_user.id_role','m_user.nama_user')
-            ->where('m_user.id_role','=',1)
-            ->first();
-        $jumlahberita = DB::table('t_post')
-            ->where('t_post.id_tag','=',3)
-            ->count();
-        $jumlahjurnal = DB::table('t_post')
-            ->where('t_post.id_kategori','=',1)
-            ->count();
-        $jumlahmajalah = DB::table('t_post')
-            ->where('t_post.id_kategori','=',2)
-            ->count();
-        $jumlahartikel = DB::table('t_post')
-            ->where('t_post.id_tag','=',4)
-            ->count();
-        return view('dashboard',compact('jumlahberita','namauser','jumlahjurnal','jumlahmajalah','jumlahartikel'));
     }
 
     /**

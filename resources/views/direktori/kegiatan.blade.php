@@ -15,7 +15,7 @@
                 <img src="{{url('/images/kegiatan/'.$b->img_post)}}" style="width: 60%; alignment: center;">
                 <h5 style="color: #0c0c0c; font-weight: bold; font-family: 'Comic Sans MS';">{{$b->judul_post}}</h5>
                 <p style="color: #0c0c0c;"><small>{{$b->isi_post}}</small></p>
-                <a href="{{$b->link_file}}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Baca Selengkapnya</button></a>
+                <a href="{{$b->link_post}}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Baca Selengkapnya</button></a>
             </div>
             @endforeach
         </div>

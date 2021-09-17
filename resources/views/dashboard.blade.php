@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
-            Dashboard Admin
+            Dashboard
         </h1>
     </div>
 </div>
@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="alert alert-success">
-            Selamat datang <u>{{$namauser->nama_user}}</u>
+            Selamat datang <u>{{ \Illuminate\Support\Facades\Session::get('nama') }}</u>
         </div>
     </div>
 </div>
