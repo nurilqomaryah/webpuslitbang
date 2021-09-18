@@ -71,10 +71,15 @@ class LoginController extends Controller
             }
             else
             {
+                echo $result[0]->id_role;
                 // Redirect ke halaman author
                 return redirect()
                     ->route('dashboardauthor');
             }
+        }
+        else
+        {
+            echo "Hit";
         }
     }
 

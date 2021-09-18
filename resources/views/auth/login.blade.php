@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 align-content-center">
+        <div class="col-md-8 align-content-center" style="margin-top: 10em;">
             <div class="card">
                 <div class="card-header text-center">{{ __('Selamat Datang di Aplikasi MATA LITBANG (Manajemen Data Website Puslitbang)') }}</div>
                 <div class="card-body">
