@@ -32,8 +32,10 @@
     </div>
     </body>
 </html>
-<script type="text/js" src="{{ asset('js/app.js')}}" ></script>
-<script type="text/js" src="{{ asset('js/templatecrud/sb-admin-2.min.js') }}" ></script>
+<script type="text/javascript" src="{{ asset('js/app.js')}}" ></script>
+<script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/templatecrud/sb-admin-2.min.js') }}" ></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 {{--<script src="https://code.jquery.com/jquery-3.5.1.js"></script>--}}

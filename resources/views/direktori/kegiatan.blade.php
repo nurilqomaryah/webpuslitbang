@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             @foreach($berita as $b)
-                <div class="col-md-4 text-center" style="padding-top: 2em;">
+                <div class="col-md-3 text-center" style="padding-top: 2em;">
                     <img src="{{url('/images/kegiatan/'.$b->img_post)}}" class="img-responsive" style="alignment: center;"/>
                     <h5 style="color: #0c0c0c; font-weight: bold; font-family: 'Comic Sans MS';">
                         {{$b->judul_post}}

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
     <ul class="navbar-nav">
-        <li class="no-arrow" style="text-align: left;">
+        <li class="no-arrow" style="text-align: left; font-weight: bold; font-size: larger;">
             Puslitbangwas
         </li>
     </ul>

@@ -182,7 +182,8 @@ class PostingCtrl extends Controller
             ->where('t_post.id_tag','=',7)
             ->limit(3)
             ->get();
-        return view('home.index',compact('berita','artikel','pengumuman','info','video','achieve'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('home.index',compact('berita','artikel','pengumuman','info','video','achieve', 'visitor'));
     }
 
     public function video()

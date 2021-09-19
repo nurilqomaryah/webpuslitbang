@@ -1,3 +1,5 @@
+/** Khusus untuk create user, view yang dipakai yaitu pada views/auth/register.blade.php */
+
 @extends('layouts.crud')
 
 @section('main')

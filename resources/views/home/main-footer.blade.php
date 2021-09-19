@@ -20,7 +20,7 @@
                 <p><img class="logo-img" src="{{url('/images/sosmed/message.png')}}" style="width: 20px; height: 20px;"><a class="white-font cus-font">  puslitbangwas@bpkp.go.id</a></p>
                 &nbsp;
                 <p>Jumlah Pengunjung </br>
-                <span style="font-weight: bold; color: #FFA500;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2871</span></p>
+                <span style="font-weight: bold; color: #FFA500;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ $visitor }}</span></p>
             </div>
         </div>
         <div class="row text-center">

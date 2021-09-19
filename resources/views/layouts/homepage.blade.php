@@ -28,12 +28,15 @@
 </html>
 <script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/templatecrud/sb-admin-2.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/slick-1.8.1/slick/slick.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/jssor.js')}}"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
+    window.url = window.location.protocol + "//" + window.location.host;
     $(document).ready(function() {
         var dialogShown = localStorage.getItem('dialogShown')
+        var visitor = localStorage.getItem('visitor');
 
         if (!dialogShown) {
             $(window).load(function(){
@@ -43,6 +46,14 @@
         }
         else {
             $("#dialog1").hide();
+        }
+
+        if(!visitor) {
+            localStorage.setItem('visitor', 1)
+            $.ajax({
+                url: window.url+'/webpuslitbang/public/visitor-counter',
+                method: 'POST'
+            });
         }
 
         //Multi-line

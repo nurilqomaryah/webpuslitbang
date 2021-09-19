@@ -11,42 +11,44 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
     <!-- Nav Item - Dashboard -->
     @if(\Illuminate\Support\Facades\Session::get('role') == 1)
     <li class="nav-item">
         <a class="nav-link" href="{{url('dashboardadmin')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-chart-bar"></i>
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url('manajemenuser')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-user-alt"></i>
             <span>Management User</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url('manajemenrole')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="far fa-address-card"></i>
             <span>Management Role</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url('manajemencategory')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="far fa-calendar-alt"></i>
             <span>Management Category</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url('manajementag')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-tags"></i>
             <span>Management Tag</span></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{url('manajemenproduct')}}">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <i class="fas fa-tasks"></i>
         <span>Management Product</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url('manajemenpost')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="far fa-newspaper"></i>
             <span>Management Post</span></a>
     </li>
     @else

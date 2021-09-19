@@ -21,7 +21,7 @@
     <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="panel panel-primary text-center no-boder bg-color-green">
             <div class="panel-body">
-                <i class="fa fa-address-book fa-5x"></i>
+                <i class="far fa-newspaper fa-5x"></i>
                 <h3>{{$jumlahberita}}</h3>
             </div>
             <div class="panel-footer back-footer-green">Total Berita/Kegiatan</div>
@@ -30,7 +30,7 @@
     <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="panel panel-primary text-center no-boder bg-color-brown">
             <div class="panel-body">
-                <i class="fa fa-users fa-5x"></i>
+                <i class="fas fa-journal-whills fa-5x"></i>
                 <h3>
                     {{$jumlahjurnal}}
                 </h3>
@@ -41,7 +41,7 @@
     <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="panel panel-primary text-center no-boder bg-color-red">
             <div class="panel-body">
-                <i class="fa fa fa-comments fa-5x"></i>
+                <i class="fas fa-book-open fa-5x"></i>
                 <h3>
                     {{$jumlahmajalah}}
                 </h3>
