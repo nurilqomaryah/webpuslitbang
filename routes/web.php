@@ -50,7 +50,7 @@ Route::get('informasi/setiap_saat', [website\InformasiCtrl::class, 'setiapsaat']
 Route::get('informasi/berkala', [website\InformasiCtrl::class, 'berkala']);
 
 //Route Direktori
-Route::get('direktori/Pengumuman', [website\DirektoriCtrl::class, 'pengumuman']);
+Route::get('direktori/pengumuman', [website\DirektoriCtrl::class, 'pengumuman']);
 Route::get('direktori/kegiatan', [website\DirektoriCtrl::class, 'kegiatan']);
 Route::get('direktori/artikel', [website\DirektoriCtrl::class, 'artikel']);
 Route::get('direktori/galeri', [website\DirektoriCtrl::class, 'galeri']);

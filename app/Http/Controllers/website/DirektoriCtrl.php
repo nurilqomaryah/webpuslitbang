@@ -94,38 +94,46 @@ class DirektoriCtrl extends Controller
         $pengumuman = DB::table('t_post')
             ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',2)
+            ->orderBy('t_post.created_at','desc')
             ->limit(9)
             ->get();
-        return view('direktori.Pengumuman',compact('pengumuman'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('direktori.Pengumuman',compact('pengumuman','visitor'));
     }
 
     public function kegiatan()
     {
         $berita = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_gambar','t_post.link_post')
             ->where('t_post.id_tag','=',3)
+            ->orderBy('t_post.created_at','desc')
             ->limit(9)
             ->get();
-        return view('direktori.kegiatan',compact('berita'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('direktori.kegiatan',compact('berita','visitor'));
     }
 
     public function artikel()
     {
         $artikel = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.link_gambar','link_file')
             ->where('t_post.id_tag','=',4)
+            ->orderBy('t_post.created_at','desc')
             ->limit(9)
             ->get();
-        return view('direktori.artikel',compact('artikel'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('direktori.artikel',compact('artikel','visitor'));
     }
 
     public function galeri()
     {
         $galeri = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',8)
+            ->orderBy('t_post.created_at','desc')
             ->limit(12)
             ->get();
-        return view('direktori.galeri',compact('galeri'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('direktori.galeri',compact('galeri','visitor'));
     }
 }

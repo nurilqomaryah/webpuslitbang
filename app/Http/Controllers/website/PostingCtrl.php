@@ -20,14 +20,23 @@ use App\Models\website\Posting;
 class PostingCtrl extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('t_post')
+        $idUser = $request->session()->get('id_user');
+        if($request->session()->get('role') == '1')
+        {
+            $posts = DB::table('t_post')
                 ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.img_post','t_post.link_gambar','t_post.link_post','t_post.tgl_post','ref_tag.nama_tag','m_user.nama_user')
                 ->join('ref_tag','t_post.id_tag','=','ref_tag.id_tag')
                 ->join('m_user','t_post.id_user','=','m_user.id_user')
                 ->where('t_post.id_tag','!=','1')
                 ->get();
+        }
+        else
+        {
+            $postList = new Posting();
+            $posts = $postList->getPostByAuthor($idUser);
+        }
 
         return view('crud.posts.index', compact('posts'));
     }
@@ -60,6 +69,7 @@ class PostingCtrl extends Controller
         $idTag = $request->get('id_tag');
         $linkPost = $request->get('link_post');
         $idUser = $request->session()->get('id_user');
+        $linkFile = "";
 
         // Logic Upload dimulai dari sini
         $namaTag = $this->__changeIdTagToString($idTag);
@@ -69,6 +79,15 @@ class PostingCtrl extends Controller
         $upload = $request->file('img_post')->storeAs($tujuan_upload, $filename);
         // Logic upload selesai
 
+        if(!empty($request->file('link_file')))
+        {
+            $extension = $request->file('link_file')->extension();
+            $filenameArtikel = sha1(time().time()).".".$extension;
+            $tujuan_upload = 'public/artikel';
+            $uploadFile = $request->file('link_file')->storeAs($tujuan_upload, $filenameArtikel);
+            $linkFile = str_replace('public','',$uploadFile);
+        }
+
         $post = new Posting([
             'id_user'=> $idUser,
             'judul_post' => $judulPost,
@@ -77,7 +96,8 @@ class PostingCtrl extends Controller
             'link_gambar' => str_replace('public','',$upload),
             'link_post' => $linkPost,
             'nama_tag' => $idTag,
-            'id_tag' => $idTag
+            'id_tag' => $idTag,
+            'link_file' => (!empty($linkFile) ? $linkFile : '')
         ]);
 
         $post->save();
@@ -111,15 +131,12 @@ class PostingCtrl extends Controller
         $idTag = $request->get('id_tag');
         $idUser = $request->session()->get('id_user');
 
-        if(empty($request->file('img_post')))
-        {
-            $post->judul_post = $judulPost;
-            $post->isi_post = $isiPost;
-            $post->link_post = $linkPost;
-            $post->id_tag = $idTag;
-            $post->id_user = $idUser;
-        }
-        else
+        $post->judul_post = $judulPost;
+        $post->isi_post = $isiPost;
+        $post->link_post = $linkPost;
+        $post->id_tag = $idTag;
+        $post->id_user = $idUser;
+        if(!empty($request->file('img_post')))
         {
             // Logic Upload dimulai dari sini
             $namaTag = $this->__changeIdTagToString($idTag);
@@ -130,13 +147,20 @@ class PostingCtrl extends Controller
             $upload = $request->file('img_post')->storeAs($tujuan_upload, $filename);
             // Logic upload selesai
 
-            $post->judul_post = $judulPost;
-            $post->isi_post = $isiPost;
             $post->img_post = $originalFilename;
             $post->link_gambar = str_replace('public','',$upload);
-            $post->link_post = $linkPost;
-            $post->id_tag = $idTag;
-            $post->id_user = $idUser;
+        }
+
+        if(!empty($request->file('link_file')))
+        {
+            // Logic Upload dimulai dari sini
+            $extension = $request->file('link_file')->extension();
+            $filenameArtikel = sha1(time().time()).".".$extension;
+            $tujuan_uploadFile = 'public/artikel';
+            $uploadFile = $request->file('link_file')->storeAs($tujuan_uploadFile, $filenameArtikel);
+            // Logic upload selesai
+
+            $post->link_file = str_replace('public','',$uploadFile);
         }
 
         $post->save();
@@ -153,28 +177,33 @@ class PostingCtrl extends Controller
     public function home()
     {
         $berita = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.views')
             ->where('t_post.id_tag','=',3)
+            ->orderBy('t_post.created_at','desc')
             ->limit(3)
             ->get();
         $artikel = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.link_file','t_post.link_gambar')
             ->where('t_post.id_tag','=',4)
+            ->orderBy('t_post.created_at','desc')
             ->limit(3)
             ->get();
         $pengumuman = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',2)
             ->limit(3)
+            ->orderBy('t_post.created_at','desc')
             ->get();
         $info = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',5)
+            ->orderBy('t_post.created_at','desc')
             ->limit(3)
             ->get();
         $video = DB::table('t_post')
             ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
             ->where('t_post.id_tag','=',6)
+            ->orderBy('t_post.created_at','desc')
             ->limit(3)
             ->get();
         $achieve = DB::table('t_post')

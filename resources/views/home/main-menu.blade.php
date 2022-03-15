@@ -49,7 +49,7 @@
                 <li class="dropdown dropdown-hover">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Direktori<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('direktori/Pengumuman')}}">Pengumuman</a></li>
+                        <li><a href="{{url('direktori/pengumuman')}}">Pengumuman</a></li>
                         <li><a href="{{url('direktori/kegiatan')}}">Kegiatan/Berita</a></li>
                         <li><a href="{{url('direktori/artikel')}}">Artikel Pengawasan</a></li>
                         <li><a href="{{url('direktori/galeri')}}">Galeri Foto</a></li>

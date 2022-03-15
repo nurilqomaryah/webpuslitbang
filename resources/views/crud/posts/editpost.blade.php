@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Edit Post') }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{  route('posts.update', $edit_post->id_post) }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{  route('posts.update', $edit_post->id_post) }}">
                             @method('PATCH')
                             @csrf
                             <div class="form-group row">
@@ -22,9 +22,9 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="isi_post" class="col-md-4 col-form-label text-md-right">{{ __('Isi Post') }}</label>
+                                <label for="isi_post" class="col-md-4 col-form-label text-md-right">{{ __('Isi Post*') }}</label>
                                 <div class="col-md-6">
-                                    <textarea id="isi_post" type="text" class="form-control @error('isi_post') is-invalid @enderror" name="isi_post" value="{{$edit_post->isi_post}}" autocomplete="isi_post" autofocus></textarea>
+                                    <textarea id="isi_post" type="text" class="form-control @error('isi_post') is-invalid @enderror" name="isi_post" autocomplete="isi_post" autofocus>{{$edit_post->isi_post}}</textarea>
                                     @error('isi_post')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -61,7 +61,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="nama_tag" class="col-md-4 col-form-label text-md-right">{{ __('Tag') }}</label>
+                                <label for="link_file" class="col-md-4 col-form-label text-md-right">{{ __('Link File Existing')}}</label>
+                                <div class="col-md-6">
+                                    <span><a href='{{asset('storage'.$edit_post->link_file)}}' target='_blank'>Link File</a></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="link_file" class="col-md-4 col-form-label text-md-right">{{ __('Link File Baru')}}</label>
+                                <div class="col-md-6">
+                                    <input id="link_file" type="file" class="form-control" name="link_file"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nama_tag" class="col-md-4 col-form-label text-md-right">{{ __('Tag*') }}</label>
                                 <div class="col-md-6">
                                     <select name="id_tag" class="form-control" id="id_tag" autofocus>
                                         @foreach($tag as $key)

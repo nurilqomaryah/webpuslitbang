@@ -10,7 +10,7 @@
                     <div class="panel panel-default panel-sharp">
                         <div class="panel-body panel-custom">
                             <div class="col-md-2 panel-img">
-                                <img alt src="{{url('/images/artikel/'.$a->img_post) }}" style="height: 170px; margin: 10px;"/>
+                                <img alt src="{{asset('storage'.$a->link_gambar)}}" style="height: 170px; margin: 10px;"/>
                             </div>
                             <div class="col-md-10">
                                 <h5 style="margin-top: 20px; font-weight: bold;">
@@ -24,7 +24,7 @@
 {{--                                <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>--}}
 {{--                                    Artikel ini dimuat dalam: </br> Jurnal Pengawasan ISSN 2686-2840 </br> Vol.2, No.2, September 2020 (30-40)</p>--}}
                                 <p>
-                                    <a href="{{$a->link_post}} " target="_blank" style="font-size: 13px;">Baca Selengkapnya</a>
+                                    <a href="{{asset('storage'.$a->link_file)}}" target="_blank" style="font-size: 13px;">Baca Selengkapnya</a>
                                 </p>
                             </div>
                         </div>

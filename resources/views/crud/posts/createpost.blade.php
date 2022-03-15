@@ -54,6 +54,17 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="link_file" class="col-md-4 col-form-label text-md-right">{{ __('Link File') }}</label>
+                            <div class="col-md-6">
+                                <input id="link_file" type="file" class="form-control @error('link_file') is-invalid @enderror" name="link_file" value="{{ old('link_file') }}" autocomplete="link_file" autofocus>
+                                @error('link_file')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="id_tag" class="col-md-4 col-form-label text-md-right">{{ __('Tag*') }}</label>
                             <div class="col-md-6">
                                 <select name="id_tag" class="form-control @error('id_tag') is-invalid @enderror" id="id_tag" autocomplete="id_tag" autofocus>

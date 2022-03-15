@@ -30,42 +30,50 @@ class ProfileCtrl extends Controller
 
     public function struktur()
     {
-        return view('profile.struktur');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.struktur',compact('visitor'));
     }
 
     public function visi()
     {
-        return view('profile.visimisi');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.visimisi',compact('visitor'));
     }
 
     public function tusi()
     {
-        return view('profile.tupoksi');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.tupoksi',compact('visitor'));
     }
 
     public function tujuan()
     {
-        return view('profile.tujuan');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.tujuan',compact('visitor'));
     }
 
     public function dukungan()
     {
-        return view('profile.dukungan');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.dukungan',compact('visitor'));
     }
 
     public function pimpinan()
     {
-        return view('profile.pimpinan');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.pimpinan',compact('visitor'));
     }
 
     public function sekapur()
     {
-        return view('profile.sekapur');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.sekapur',compact('visitor'));
     }
 
     public function kapuslitbangwas()
     {
-        return view('profile.kapuslitbangwas');
+        $visitor = DB::table('t_visitor')->count();
+        return view('profile.kapuslitbangwas',compact('visitor'));
     }
 
     /**

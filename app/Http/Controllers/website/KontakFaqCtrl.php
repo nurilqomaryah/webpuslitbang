@@ -31,12 +31,14 @@ class KontakFaqCtrl extends Controller
 
     public function showContact()
     {
-        return view('contactus');
+        $visitor = DB::table('t_visitor')->count();
+        return view('contactus',compact('visitor'));
     }
 
     public function faq()
     {
-        return view('faq');
+        $visitor = DB::table('t_visitor')->count();
+        return view('faq',compact('visitor'));
     }
 
     function sendMail(Request $request){

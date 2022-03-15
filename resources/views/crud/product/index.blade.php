@@ -17,7 +17,6 @@
                             <th>ID</th>
                             <th>Judul Post</th>
                             <th>Kategori</th>
-                            <th>Tag</th>
                             <th>Tanggal Buat</th>
                             <th>Nama Pembuat</th>
                             <th>Actions</th>
@@ -30,7 +29,6 @@
                                 <td>{{$p->id}}</td>
                                 <td>{{$p->judul_post}}</td>
                                 <td>{{$p->nama_kategori}}</td>
-                                <td>{{$p->nama_tag}}</td>
                                 <td>{{$p->tgl_post}}</td>
                                 <td>{{$p->nama_user}}</td>
                                 <td>

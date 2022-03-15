@@ -16,7 +16,7 @@
                 <div class="col-sm-6">
                     <div class="carousel-caption text-justify" style="text-align: justify">
                         <h3>{{$b->judul_post}}</h3>
-                        <p>&nbsp; {{$b->isi_post}}</p>
+                        <p> {!! \Illuminate\Support\Str::words($b->isi_post, 30) !!}</p>
                         <div class="text-right" style="text-align:right">
                             <a href="{{$b->link_post}}" target="_blank" class="btn btn-orange" style="color: #263C92">Baca Selengkapnya
                                 <span class="glyphicon glyphicon-arrow-right"></span>

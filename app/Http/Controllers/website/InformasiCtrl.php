@@ -30,17 +30,20 @@ class InformasiCtrl extends Controller
 
     public function setiapsaat()
     {
-        return view('informasi.info_setiap_saat');
+        $visitor = DB::table('t_visitor')->count();
+        return view('informasi.info_setiap_saat',compact('visitor'));
     }
 
     public function sertamerta()
     {
-        return view('informasi.info_serta_merta');
+        $visitor = DB::table('t_visitor')->count();
+        return view('informasi.info_serta_merta',compact('visitor'));
     }
 
     public function berkala()
     {
-        return view('informasi.info_berkala');
+        $visitor = DB::table('t_visitor')->count();
+        return view('informasi.info_berkala',compact('visitor'));
     }
 
     /**

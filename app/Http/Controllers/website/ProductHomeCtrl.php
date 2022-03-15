@@ -96,7 +96,8 @@ class ProductHomeCtrl extends Controller
             ->where('t_post.id_kategori','=',1)
             ->limit(9)
             ->get();
-        return view('produk.jurnal.jurnal',compact('jurnal'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('produk.jurnal.jurnal',compact('jurnal','visitor'));
     }
 
     public function majalah()
@@ -107,7 +108,8 @@ class ProductHomeCtrl extends Controller
             ->where('t_post.id_kategori','=',2)
             ->limit(9)
             ->get();
-        return view('produk.majalah.majalah',compact('majalah'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('produk.majalah.majalah',compact('majalah','visitor'));
     }
 
     public function hasil()
@@ -118,6 +120,7 @@ class ProductHomeCtrl extends Controller
             ->where('t_post.id_kategori','=',5)
             ->limit(9)
             ->get();
-        return view('produk.hasil.hasil',compact('hasil'));
+        $visitor = DB::table('t_visitor')->count();
+        return view('produk.hasil.hasil',compact('hasil','visitor'));
     }
 }

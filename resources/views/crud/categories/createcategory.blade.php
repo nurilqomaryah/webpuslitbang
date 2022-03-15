@@ -1,27 +1,35 @@
 @extends('layouts.crud')
 
 @section('main')
-    <div class="row">
-        <div class="col-sm-8 offset-sm-2">
-            <h1 class="display-3">Tambah Kategori</h1>
-            <div>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div><br />
-                @endif
-                <form method="post" action="{{route('categories.store')}}">
-                    @csrf
-                    <div class="form-group">
-                        <label for="nama_kategori">Nama Kategori*:</label>
-                        <input type="text" class="form-control" name="nama_kategori"/>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Tambah Kategori') }}</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{route('categories.store')}}">
+                            @csrf
+                            <div class="form-group row">
+                                <label for="nama_kategori" class="col-md-4 col-form-label text-md-right">{{ __('Nama Kategori*') }}</label>
+                                <div class="col-md-6">
+                                    <input id="nama_kategori" type="text" class="form-control @error('nama_kategori') is-invalid @enderror" name="nama_kategori" value="{{ old('nama_kategori')}}" autocomplete="nama_kategori" autofocus>
+                                    @error('nama_kategori')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Tambah Kategori') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah Kategori</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>

@@ -24,7 +24,7 @@
                                                 @else
                                                     <div class="item">
                                         @endif
-                                        <img src="{{url('/images/infografis/'.$i->img_post)}}" class="tales-info">
+                                        <img src="{{asset('storage'.$i->link_gambar)}}" class="tales-info">
                                     </div>
                                     @endforeach
                                 </div>

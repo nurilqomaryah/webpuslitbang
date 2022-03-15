@@ -8,6 +8,13 @@
                     <center><h5 class="m-0 font-weight-bold text-primary">Daftar Post</h5></center>
                 </div>
                 <div class="card-body" style="padding: 4rem;">
+                    <div class="col-sm-12">
+                        @if(session()->get('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
+                    </div>
                     <div class="d-flex flex-row-reverse">
                         <a style="margin-bottom: 1em;" href="{{ route('posts.create')}}" class="btn btn-primary btn-sm pull-right">Tambah Post</a>
                     </div>
@@ -45,13 +52,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="col-sm-12">
-                        @if(session()->get('success'))
-                            <div class="alert alert-success">
-                                {{ session()->get('success') }}
-                            </div>
-                        @endif
-                    </div>
                 </div>
             </div>
         </div>
