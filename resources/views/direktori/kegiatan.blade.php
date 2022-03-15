@@ -6,22 +6,26 @@
         <div class="text-center">
             <h4 style="font-weight: bold;">Kegiatan Terkini</h4>
         </div>
-        <div class="row">
-            @foreach($berita as $b)
-                <div class="col-md-3 text-center" style="padding-top: 2em;">
-                    <img src="{{asset('storage'.$b->link_gambar)}}" class="img-responsive" style="alignment: center;" height="90%;"/>
-                    <h5 style="color: #0c0c0c; font-weight: bold; font-family: 'Comic Sans MS';">
-                        {{$b->judul_post}}
-                    </h5>
-                    <p style="color: #0c0c0c;">
-                        <small>{!! \Illuminate\Support\Str::words($b->isi_post, 20) !!}</small>
-                    </p>
-                    <a href="{{$b->link_post}}" target="_blank">
-                        <button type="button" class="btn btn-primary btn-xs">Baca Selengkapnya</button>
-                    </a>
+        @foreach($berita as $b)
+            @if($loop->iteration % 4 == 0 || $loop->iteration == 0)
+                <div class="row">
+            @endif
+            <div class="col-md-3 text-center" style="padding-top: 2em;">
+                <img src="{{asset('storage'.$b->link_gambar)}}" class="img-responsive" style="alignment: center;" height="90%;"/>
+                <h5 style="color: #0c0c0c; font-weight: bold; font-family: 'Comic Sans MS';">
+                    {{$b->judul_post}}
+                </h5>
+                <p style="color: #0c0c0c;">
+                    <small>{!! \Illuminate\Support\Str::words($b->isi_post, 20) !!}</small>
+                </p>
+                <a href="{{$b->link_post}}" target="_blank">
+                    <button type="button" class="btn btn-primary btn-xs">Baca Selengkapnya</button>
+                </a>
+            </div>
+            @if($loop->iteration % 4 == 0 || $loop->iteration == 0)
                 </div>
-            @endforeach
-        </div>
+            @endif
+        @endforeach
     </div>
 </div>
 @endsection
