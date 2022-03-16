@@ -33,6 +33,9 @@ Route::get('produk/jurnal', [website\ProductHomeCtrl::class, 'journal']);
 Route::get('produk/majalah', [website\ProductHomeCtrl::class, 'majalah']);
 Route::get('produk/hasil', [website\ProductHomeCtrl::class, 'hasil']);
 Route::get('videografis', [website\PostingCtrl::class, 'video']);
+Route::get('infografis', [website\PostingCtrl::class, 'grafis']);
+Route::get('detail berita', [website\PostingCtrl::class, 'read_berita']);
+
 
 //Route Profile
 Route::get('profile/visi', [website\ProfileCtrl::class, 'visi']);

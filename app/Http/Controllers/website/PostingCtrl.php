@@ -215,6 +215,27 @@ class PostingCtrl extends Controller
         return view('home.index',compact('berita','artikel','pengumuman','info','video','achieve', 'visitor'));
     }
 
+    public function read_berita(Request $id)
+    {
+        $post = Posting::find($id);
+        $baca_berita = DB::table('t_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.views','t_post.link_gambar')
+            ->where('t_post.id_tag','=',3)
+            ->get();
+        return view('home.read-berita',compact('baca_berita'));
+    }
+
+    public function grafis()
+    {
+        $grafis = DB::table('t_post')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
+            ->where('t_post.id_tag','=',5)
+            ->limit(3)
+            ->get();
+        $visitor = DB::table('t_visitor')->count();
+        return view('home.infografis',compact('grafis','visitor'));
+    }
+
     public function video()
     {
         $video = DB::table('t_post')
@@ -222,7 +243,8 @@ class PostingCtrl extends Controller
             ->where('t_post.id_tag','=',6)
             ->limit(3)
             ->get();
-        return view('home.videografis',compact('video',));
+        $visitor = DB::table('t_visitor')->count();
+        return view('home.videografis',compact('video','visitor'));
     }
 
     /**

@@ -79,7 +79,7 @@ class LoginController extends Controller
         }
         else
         {
-            echo "Hit";
+            echo "Password Salah";
         }
     }
 

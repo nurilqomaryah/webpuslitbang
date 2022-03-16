@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="card-footer" style="background-color: #ffffff;">
-                            <a href="http://www.bpkp.go.id/infografis" style="font-weight: bold; color: #0c199c;" target="_blank">Infografis Lainnya
+                            <a href="{{url('infografis')}}" style="font-weight: bold; color: #0c199c;">Infografis Lainnya
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
                         </div>
