@@ -14,9 +14,7 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [website\PostingCtrl::class, 'home']);
 
 Route::post('/visitor-counter', [website\VisitorCtrl::class,'index']);
 

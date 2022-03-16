@@ -38,6 +38,8 @@
         var dialogShown = localStorage.getItem('dialogShown')
         var visitor = localStorage.getItem('visitor');
 
+        console.log(visitor);
+
         if (!dialogShown) {
             $(window).load(function(){
                 $( "#modal" ).modal('show');
