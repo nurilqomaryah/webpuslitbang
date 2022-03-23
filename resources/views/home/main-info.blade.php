@@ -73,7 +73,7 @@
                 </div>
                 <div>
                     <h4 style="font-weight: bold">Video Terbaru</h4>
-                    <iframe width="100%" height="40%" class="col-md-5" style="padding-top: 20px;" src="https://www.youtube.com/embed/ni3QjRcjxwY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="40%" class="col-md-5" style="padding-top: 20px;" src="{{ $youtube[0]->link_post }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

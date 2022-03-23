@@ -32,7 +32,7 @@ Route::get('produk/majalah', [website\ProductHomeCtrl::class, 'majalah']);
 Route::get('produk/hasil', [website\ProductHomeCtrl::class, 'hasil']);
 Route::get('videografis', [website\PostingCtrl::class, 'video']);
 Route::get('infografis', [website\PostingCtrl::class, 'grafis']);
-Route::get('detail berita', [website\PostingCtrl::class, 'read_berita']);
+Route::get('detailberita/{idberita}', [website\PostingCtrl::class, 'read_berita'])->name('detailberita');
 
 
 //Route Profile

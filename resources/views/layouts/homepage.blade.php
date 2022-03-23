@@ -53,7 +53,7 @@
         if(!visitor) {
             localStorage.setItem('visitor', 1)
             $.ajax({
-                url: window.url+'/webpuslitbang/public/visitor-counter',
+                url: window.url+'/visitor-counter',
                 method: 'POST'
             });
         }

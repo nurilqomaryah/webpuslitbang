@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="img_post" class="col-md-4 col-form-label text-md-right">{{ __('File Gambar*') }}</label>
+                            <label for="img_post" class="col-md-4 col-form-label text-md-right">{{ __('File Gambar') }}</label>
                             <div class="col-md-6">
                                 <input id="img_post" type="file" class="form-control @error('img_post') is-invalid @enderror" name="img_post" value="{{ old('img_post') }}" autocomplete="img_post" autofocus>
                                 @error('img_post')
@@ -93,5 +93,8 @@
         </div>
     </div>
 </div>
+<script>
+    CKEDITOR.replace("isi_post");
+</script>
 @endsection
 

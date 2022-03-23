@@ -13,19 +13,15 @@
                     <div class="panel panel-default panel-sharp">
                         <div class="panel-body panel-custom">
                             <div class="col-md-2 panel-img">
-                                <img alt src="{{asset('storage'.$a->link_gambar)}}" style="height: 170px; margin: 10px;"/>
+                                <img alt src="{{asset('storage'.$a->link_gambar)}}" style="height: 170px; width: 130px;margin: 10px;"/>
                             </div>
                             <div class="col-md-10">
                                 <h5 style="margin-top: 20px; font-weight: bold;">
                                     {{$a->judul_post}} </br><small><i class="glyphicon glyphicon-calendar"></i> {{$a->tgl_post}}</small>
                                 </h5>
                                 <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>
-                                    {{$a->isi_post}}
+                                    {!! $a->isi_post !!}
                                 </p>
-{{--                                <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>--}}
-{{--                                    Kata Kunci: akuntansi, aset bersejarah, laporan keuangan, catatan atas laporan keuangan (CaLK)</p>--}}
-{{--                                <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>--}}
-{{--                                    Artikel ini dimuat dalam: </br> Jurnal Pengawasan ISSN 2686-2840 </br> Vol.2, No.2, September 2020 (30-40)</p>--}}
                                 <p>
                                     <a href="{{asset('storage'.$a->link_file)}}" target="_blank" style="font-size: 13px;">Baca Selengkapnya</a>
                                 </p>
@@ -34,6 +30,9 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="col-md-12 text-center">
+                    {{ $artikel->links() }}
+                </div>
             </div>
         </div>
     </div>

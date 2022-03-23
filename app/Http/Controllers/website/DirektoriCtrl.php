@@ -119,8 +119,7 @@ class DirektoriCtrl extends Controller
             ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.link_gambar','link_file')
             ->where('t_post.id_tag','=',4)
             ->orderBy('t_post.created_at','desc')
-            ->limit(9)
-            ->get();
+            ->paginate(5);
         $visitor = DB::table('t_visitor')->count();
         return view('direktori.artikel',compact('artikel','visitor'));
     }

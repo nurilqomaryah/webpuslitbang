@@ -95,4 +95,7 @@
             </div>
         </div>
     </div>
+    <script>
+        CKEDITOR.replace("isi_post");
+    </script>
 @endsection

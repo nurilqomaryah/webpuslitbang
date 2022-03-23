@@ -1,5 +1,6 @@
 <html>
     <head>
+        <title>Puslitbangwas BPKP</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/templatecrud/sb-admin-2.min.css') }}"/>
 {{--        <link rel="stylesheet" type="text/css" href="{{ asset('css/templatecrud/bootstrap.css') }}"/>--}}
         <link rel="stylesheet" type="text/css" href="{{ asset('css/templatecrud/custom-styles.css') }}"/>
@@ -10,6 +11,7 @@
 {{--        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />--}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap4.min.css"/>
+        <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
     </head>
     <body id="page-top">
     <div id="wrapper">

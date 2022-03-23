@@ -110,8 +110,8 @@
                 <div class="row">
                     @foreach($pengumuman as $p)
                     <div class="col-md-12">
-                        <a href="{{$p->link_post}}" target="_blank">
-                            <img src="{{asset('storage'.$p->link_gambar)}}" alt style="width: 100%;"/>
+                        <a href="{{$p->link_post}}" >
+                            <img src="{{asset('storage'.$p->link_gambar)}}" alt style="width: 100%;" target="_blank"/>
                         </a>
                     </div>
                     <p>

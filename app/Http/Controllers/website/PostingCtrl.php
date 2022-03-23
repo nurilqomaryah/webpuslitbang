@@ -59,24 +59,26 @@ class PostingCtrl extends Controller
     {
         $request->validate([
             'judul_post'=>'required',
-            'img_post'=>'required',
+        //    'img_post'=>'required',
             'id_tag'=>'required'
         ]);
 
         $judulPost = $request->get('judul_post');
         $isiPost = $request->get('isi_post');
-        $imgPost = $request->file('img_post')->getClientOriginalName();
+        $imgPost = (!empty($request->file('img_post')) ? $request->file('img_post')->getClientOriginalName() : "");
         $idTag = $request->get('id_tag');
         $linkPost = $request->get('link_post');
         $idUser = $request->session()->get('id_user');
         $linkFile = "";
 
         // Logic Upload dimulai dari sini
-        $namaTag = $this->__changeIdTagToString($idTag);
-        $extension = $request->file('img_post')->extension();
-        $filename = sha1(time().time()).".".$extension;
-        $tujuan_upload = 'public/images/'.strtolower(str_replace(' ','_', $namaTag));
-        $upload = $request->file('img_post')->storeAs($tujuan_upload, $filename);
+        if(!empty($request->file('img_post'))) {
+            $namaTag = $this->__changeIdTagToString($idTag);
+            $extension = $request->file('img_post')->extension();
+            $filename = sha1(time() . time()) . "." . $extension;
+            $tujuan_upload = 'public/images/' . strtolower(str_replace(' ', '_', $namaTag));
+            $upload = $request->file('img_post')->storeAs($tujuan_upload, $filename);
+        }
         // Logic upload selesai
 
         if(!empty($request->file('link_file')))
@@ -93,7 +95,7 @@ class PostingCtrl extends Controller
             'judul_post' => $judulPost,
             'isi_post' => $isiPost,
             'img_post' => $imgPost,
-            'link_gambar' => str_replace('public','',$upload),
+            'link_gambar' => (!empty($upload) ? str_replace('public','',$upload) : ""),
             'link_post' => $linkPost,
             'nama_tag' => $idTag,
             'id_tag' => $idTag,
@@ -177,7 +179,7 @@ class PostingCtrl extends Controller
     public function home()
     {
         $berita = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.views')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_gambar','t_post.link_post','t_post.views')
             ->where('t_post.id_tag','=',3)
             ->orderBy('t_post.created_at','desc')
             ->limit(3)
@@ -211,18 +213,33 @@ class PostingCtrl extends Controller
             ->where('t_post.id_tag','=',7)
             ->limit(3)
             ->get();
+        $youtube = DB::table('t_post')
+            ->select('t_post.link_post')
+            ->where('t_post.id_tag','=',10)
+            ->limit(1)
+            ->orderBy('id_post','desc')
+            ->get();
         $visitor = DB::table('t_visitor')->count();
-        return view('home.index',compact('berita','artikel','pengumuman','info','video','achieve', 'visitor'));
+        return view('home.index',compact('berita','artikel','pengumuman','info','video','achieve', 'visitor','youtube'));
     }
 
-    public function read_berita(Request $id)
+    public function read_berita(Request $request)
     {
-        $post = Posting::find($id);
+        $idBerita = $request->route('idberita');
         $baca_berita = DB::table('t_post')
             ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.views','t_post.link_gambar')
             ->where('t_post.id_tag','=',3)
+            ->where('t_post.id_post','=',$idBerita)
             ->get();
-        return view('home.read-berita',compact('baca_berita'));
+        $oldValue = Posting::select('id_post')
+            ->where('id_post',$idBerita)->count('id_post');
+
+        $post = Posting::find($idBerita);
+        $post->views=$oldValue + 1;
+        $post->save();
+
+        $visitor = DB::table('t_visitor')->count();
+        return view('home.read-berita',compact('baca_berita','visitor'));
     }
 
     public function grafis()

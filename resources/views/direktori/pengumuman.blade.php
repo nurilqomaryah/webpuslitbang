@@ -9,11 +9,17 @@
     </p>
     <div class="row text-center">
         @foreach($pengumuman as $p)
-        <div class="col-md-3">
-            <a href="{{$p->link_post}}" target="_blank">
-                <img src="{{asset('storage'.$p->link_gambar)}}" style="width: 80%;">
-            </a>
-        </div>
+            @if($loop->iteration % 4 == 0 || $loop->iteration == 0)
+                <div class="row">
+            @endif
+            <div class="col-md-3">
+                <a href="{{$p->link_post}}" target="_blank">
+                    <img src="{{asset('storage'.$p->link_gambar)}}" style="width: 80%; padding-top: 1em; padding-bottom: 1em;">
+                </a>
+            </div>
+            @if($loop->iteration % 4 == 0 || $loop->iteration == 0)
+                </div>
+            @endif
         @endforeach
     </div>
     &nbsp;
