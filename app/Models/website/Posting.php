@@ -3,9 +3,12 @@
 namespace App\Models\website;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Posting extends Model
 {
+    use SoftDeletes;
+
     protected $table = 't_post';
     protected $primaryKey = 'id_post';
     protected $fillable = ['judul_post','isi_post','img_post','link_gambar','link_post','link_file','id_kategori','id_tag','id_user'];
@@ -16,6 +19,7 @@ class Posting extends Model
                 ->join('m_user','t_post.id_user','=','m_user.id_user')
                 ->where('t_post.id_user','=',$idUser)
                 ->where('t_post.id_tag','!=','1')
+                ->orderBy('t_post.id_post','DESC')
                 ->get();
     }
 }

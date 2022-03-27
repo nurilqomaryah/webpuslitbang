@@ -14,7 +14,7 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/', [website\PostingCtrl::class, 'home']);
+Route::get('/', [website\PostingCtrl::class, 'home'])->name('landing');
 
 Route::post('/visitor-counter', [website\VisitorCtrl::class,'index']);
 
@@ -72,15 +72,18 @@ Route::get('dashboardauthor',[website\DashboardCtrl::class,'dashauthor'])->name(
 //Route::get('post', [website\PostingCtrl::class,'index']);
 //Route::post('post/proses', [website\PostingCtrl::class,'store']);
 
-Route::get('manajemenuser', [Auth\RegisterController::class, 'index']);
-Route::resource('users','Auth\RegisterController');
-Route::get('manajemenproduct', [website\ProductCrudCtrl::class, 'index']);
-Route::resource('products','website\ProductCrudCtrl');
-Route::get('manajemenpost', [website\PostingCtrl::class, 'index']);
-Route::resource('posts','website\PostingCtrl');
-Route::get('manajemenrole', [website\RoleCtrl::class, 'index']);
-Route::resource('roles','website\RoleCtrl');
-Route::get('manajemencategory', [website\CategoryCtrl::class, 'index']);
-Route::resource('categories','website\CategoryCtrl');
-Route::get('manajementag', [website\TagCtrl::class, 'index']);
-Route::resource('tags','website\TagCtrl');
+Route::middleware('sessionCheck')
+    ->group(function(){
+        Route::get('manajemenuser', [Auth\RegisterController::class, 'index']);
+        Route::resource('users','Auth\RegisterController');
+        Route::get('manajemenproduct', [website\ProductCrudCtrl::class, 'index']);
+        Route::resource('products','website\ProductCrudCtrl');
+        Route::get('manajemenpost', [website\PostingCtrl::class, 'index']);
+        Route::resource('posts','website\PostingCtrl');
+        Route::get('manajemenrole', [website\RoleCtrl::class, 'index']);
+        Route::resource('roles','website\RoleCtrl');
+        Route::get('manajemencategory', [website\CategoryCtrl::class, 'index']);
+        Route::resource('categories','website\CategoryCtrl');
+        Route::get('manajementag', [website\TagCtrl::class, 'index']);
+        Route::resource('tags','website\TagCtrl');
+    });

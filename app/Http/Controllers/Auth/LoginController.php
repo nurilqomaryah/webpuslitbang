@@ -59,27 +59,33 @@ class LoginController extends Controller
         $user = new User();
         $result = $user->checkUser($username);
 
-        if(Hash::check($password, $result[0]->password))
+        if(count($result)>0)
         {
-            $request->session()->put('id_user', $result[0]->id_user);
-            $request->session()->put('role',$result[0]->id_role);
-            $request->session()->put('nama', $result[0]->nama_user);
-            if($result[0]->id_role == 1)
+            if(Hash::check($password, $result[0]->password))
             {
-                return redirect()
-                    ->route('dashboardadmin');
+                $request->session()->put('id_user', $result[0]->id_user);
+                $request->session()->put('role',$result[0]->id_role);
+                $request->session()->put('nama', $result[0]->nama_user);
+                if($result[0]->id_role == 1)
+                {
+                    return redirect()
+                        ->route('dashboardadmin');
+                }
+                else
+                {
+                    echo $result[0]->id_role;
+                    // Redirect ke halaman author
+                    return redirect()
+                        ->route('dashboardauthor');
+                }
             }
             else
             {
-                echo $result[0]->id_role;
-                // Redirect ke halaman author
-                return redirect()
-                    ->route('dashboardauthor');
+                return redirect('/login')->with('error','Password salah');
             }
         }
-        else
-        {
-            echo "Password Salah";
+        else{
+            return redirect('/login')->with('error','User tidak ditemukan');
         }
     }
 

@@ -58,7 +58,9 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#datapost').DataTable();
+            $('#datapost').DataTable({
+                "order": [[ 3, "desc" ]]
+            });
         } );
     </script>
 @endsection

@@ -30,6 +30,7 @@ class PostingCtrl extends Controller
                 ->join('ref_tag','t_post.id_tag','=','ref_tag.id_tag')
                 ->join('m_user','t_post.id_user','=','m_user.id_user')
                 ->where('t_post.id_tag','!=','1')
+                ->orderBy('t_post.id_post','DESC')
                 ->get();
         }
         else
@@ -116,6 +117,12 @@ class PostingCtrl extends Controller
 
         $this->data['edit_post'] = Posting::find($id);
 
+        $idCreator = $this->data['edit_post']->id_user;
+
+        if(session()->get('role') != '1')
+            if($idCreator != session()->get('id_user'))
+                return redirect('/manajemenpost');
+
         return view('crud.posts.editpost', $this->data);
     }
 
@@ -187,6 +194,7 @@ class PostingCtrl extends Controller
         $artikel = DB::table('t_post')
             ->select('t_post.id_post as id','t_post.judul_post','t_post.isi_post','t_post.tgl_post','t_post.img_post','t_post.link_post','t_post.link_file','t_post.link_gambar')
             ->where('t_post.id_tag','=',4)
+            ->whereNull('t_post.deleted_at')
             ->orderBy('t_post.created_at','desc')
             ->limit(3)
             ->get();
