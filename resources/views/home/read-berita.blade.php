@@ -9,15 +9,21 @@
                         <div class="col-md-12">
                             <div class="panel panel-default panel-sharp">
                                 <div class="panel-body panel-custom">
-                                    <div class="col-md-2 panel-img">
-                                        <img alt src="{{asset('storage/images/berita/'.$b->link_gambar)}}" style="height: 170px; margin: 10px;"/>
+                                    <div class="col-md-12 panel-img text-center">
+                                        <img alt src="{{asset('storage'.$b->link_gambar)}}" style="height: 270px; margin: 10px;"/>
                                     </div>
-                                    <div class="col-md-10">
-                                        <h4 style="margin-top: 20px; font-weight: bold;">
-                                            {{$b->judul_post}} </br>
+                                </br>
+                                    <div class="col-md-12">
+                                        <h4 style="margin-top: 20px; font-weight: bold; text-align: center;">
+                                            {{$b->judul_post}}
+                                            </br>
                                         </h4>
-                                        <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>
-                                            {{$b->tgl_post}} - {{$b->isi_post}}
+                                        </br>
+                                        <p style="font-family: Calibri; text-align: right; font-size: 13px;">
+                                            {{$b->tgl_post}}
+                                        </p>
+                                        <p style="font-family: Calibri; text-align: justify; font-size: 13px;">
+                                            {{$b->isi_post}}
                                         </p>
                                     </div>
                                 </div>

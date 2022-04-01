@@ -16,7 +16,7 @@
                                 <h5 style="margin-top: 20px; font-weight: bold;">
                                     {{$a->judul_post}} </br><small><i class="glyphicon glyphicon-calendar"></i> {{$a->tgl_post}}</small>
                                 </h5>
-                                <p style="font-family: Calibri; text-align: justify"; font-size: 13px;>
+                                <p style="font-family: Calibri; text-align: justify; font-size: 13px;">
                                     {!! $a->isi_post !!}
                                 </p>
                                 <p>

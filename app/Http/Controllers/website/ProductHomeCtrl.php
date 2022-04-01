@@ -91,7 +91,7 @@ class ProductHomeCtrl extends Controller
     public function journal()
     {
         $jurnal = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',1)
             ->where('t_post.id_kategori','=',1)
             ->limit(9)
@@ -103,7 +103,7 @@ class ProductHomeCtrl extends Controller
     public function majalah()
     {
         $majalah = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',1)
             ->where('t_post.id_kategori','=',2)
             ->limit(9)
@@ -115,7 +115,7 @@ class ProductHomeCtrl extends Controller
     public function hasil()
     {
         $hasil = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',1)
             ->where('t_post.id_kategori','=',5)
             ->limit(9)
@@ -123,4 +123,41 @@ class ProductHomeCtrl extends Controller
         $visitor = DB::table('t_visitor')->count();
         return view('produk.hasil.hasil',compact('hasil','visitor'));
     }
+
+    public function seminar()
+    {
+        $seminar = DB::table('t_post')
+            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
+            ->where('t_post.id_tag','=',1)
+            ->where('t_post.id_kategori','=',3)
+            ->limit(9)
+            ->get();
+        $visitor = DB::table('t_visitor')->count();
+        return view('produk.seminar.seminar',compact('seminar','visitor'));
+    }
+
+    public function librarycafe()
+    {
+        $libcaf = DB::table('t_post')
+            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
+            ->where('t_post.id_tag','=',1)
+            ->where('t_post.id_kategori','=',6)
+            ->limit(9)
+            ->get();
+        $visitor = DB::table('t_visitor')->count();
+        return view('produk.libcafe',compact('libcaf','visitor'));
+    }
+
+    public function pks()
+    {
+        $pks = DB::table('t_post')
+            ->select('t_post.id_post as id','t_post.isi_post','t_post.judul_post','t_post.img_post','t_post.link_post','t_post.link_gambar')
+            ->where('t_post.id_tag','=',1)
+            ->where('t_post.id_kategori','=',4)
+            ->limit(9)
+            ->get();
+        $visitor = DB::table('t_visitor')->count();
+        return view('produk.pks',compact('pks','visitor'));
+    }
+
 }

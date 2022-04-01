@@ -18,9 +18,6 @@ Route::get('/', [website\PostingCtrl::class, 'home'])->name('landing');
 
 Route::post('/visitor-counter', [website\VisitorCtrl::class,'index']);
 
-//Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('login', [Auth\LoginController::class, 'index'])->name('login');
 Route::resource('logins','Auth\LoginController');
 Route::post('login/submit',[Auth\LoginController::class,'onSubmit'])->name('login.submit');
@@ -30,10 +27,12 @@ Route::get('home', [website\PostingCtrl::class, 'home']);
 Route::get('produk/jurnal', [website\ProductHomeCtrl::class, 'journal']);
 Route::get('produk/majalah', [website\ProductHomeCtrl::class, 'majalah']);
 Route::get('produk/hasil', [website\ProductHomeCtrl::class, 'hasil']);
+Route::get('produk/seminar', [website\ProductHomeCtrl::class, 'seminar']);
+Route::get('produk/librarycafe', [website\ProductHomeCtrl::class, 'librarycafe']);
+Route::get('produk/pks', [website\ProductHomeCtrl::class, 'pks']);
 Route::get('videografis', [website\PostingCtrl::class, 'video']);
 Route::get('infografis', [website\PostingCtrl::class, 'grafis']);
 Route::get('detailberita/{idberita}', [website\PostingCtrl::class, 'read_berita'])->name('detailberita');
-
 
 //Route Profile
 Route::get('profile/visi', [website\ProfileCtrl::class, 'visi']);
@@ -66,12 +65,6 @@ Route::get('dashboardadmin',[website\DashboardCtrl::class,'dashadmin'])->name('d
 Route::get('dashboardauthor',[website\DashboardCtrl::class,'dashauthor'])->name('dashboardauthor');
 
 //Route CRUD
-
-//Route::get('user', [website\UsersCtrl::class, 'index']);
-//Route::resource('users','website\UsersCtrl');
-//Route::get('post', [website\PostingCtrl::class,'index']);
-//Route::post('post/proses', [website\PostingCtrl::class,'store']);
-
 Route::middleware('sessionCheck')
     ->group(function(){
         Route::get('manajemenuser', [Auth\RegisterController::class, 'index']);

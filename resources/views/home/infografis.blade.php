@@ -10,7 +10,7 @@
     <div class="row text-center">
         @foreach($grafis as $g)
         <div class="col-md-4">
-            <video controls src="{{url('/images/videografis/'.$v->img_post)}}" style="width: 80%;"></video>
+            <img src="{{{asset('storage'.$g->link_gambar)}}}" style="width: 80%;">
         </div>
         @endforeach
     </div>

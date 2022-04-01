@@ -211,7 +211,7 @@ class PostingCtrl extends Controller
             ->limit(3)
             ->get();
         $video = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',6)
             ->orderBy('t_post.created_at','desc')
             ->limit(3)
@@ -253,7 +253,7 @@ class PostingCtrl extends Controller
     public function grafis()
     {
         $grafis = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',5)
             ->limit(3)
             ->get();
@@ -264,7 +264,7 @@ class PostingCtrl extends Controller
     public function video()
     {
         $video = DB::table('t_post')
-            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post')
+            ->select('t_post.id_post as id','t_post.img_post','t_post.link_post','t_post.link_gambar')
             ->where('t_post.id_tag','=',6)
             ->limit(3)
             ->get();

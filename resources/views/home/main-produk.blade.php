@@ -6,7 +6,7 @@
                 <h3 class="text-center" style="font-weight: bold;">Produk Litbang</h3>
                 &nbsp;
                 <div class="row">
-                    <a href="https://eos.bpkp.go.id/ipms_pro/kms/insight/id" target="_blank">
+                    <a href="https://kms.bpkp.go.id/kms/login.html" target="_blank">
                         <figure class="shape-img">
                             <div class="col-md-2 text-center" style="padding-right: 0px; padding-top: 10px; padding-bottom: 10px;">
                                 <img src="{{url('/images/produk/kc2.png')}}" alt style="width: 80%; height: 15%; border-radius: 10px;"/>
@@ -17,16 +17,6 @@
                             </div>
                         </figure>
                     </a>
-                    <!--                <div class="col-md-2 col-md-push-4 text-center" style="padding-left: 2em;">-->
-                    <!--                    <a href="https://eos.bpkp.go.id/ipms_pro/kms/insight/id">-->
-                    <!--                    <figure class="hover-img">-->
-                    <!--                        <img src="./image/kc2.png" style="width: 100%; background-color: white;"/>-->
-                    <!--                        <figcaption style="font-family: Calibri; font-size: small;">-->
-                    <!--                            <h6>Aplikasi ini digunakan untuk mengidentifikasi, mengambil, menyimpan, memelihara dan membagikan pengetahuan, dengan harapan memberikan manfaat bagi orang lain yang membutuhkannya</h6>-->
-                    <!--                        </figcaption>-->
-                    <!--                    </figure>-->
-                    <!--                    </a>-->
-                    <!--                </div>-->
                 </div>
                 &nbsp;
                 <div class="row row-space">
@@ -91,7 +81,7 @@
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <a href="{{url('produk/ppm')}}">
+                        <a href="{{url('produk/pks')}}">
                             <figure class="hover-img">
                                 <img src="{{url('/images/produk/pks.jpg')}}" alt style="width: 100%; height: 25%;"/>
                                 <figcaption style="font-family: Calibri; font-size: small;">
