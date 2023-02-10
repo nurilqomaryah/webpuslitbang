@@ -239,11 +239,11 @@ class PostingCtrl extends Controller
             ->where('t_post.id_tag','=',3)
             ->where('t_post.id_post','=',$idBerita)
             ->get();
-        $oldValue = Posting::select('id_post')
-            ->where('id_post',$idBerita)->count('id_post');
+        $oldValue = Posting::select('views')
+            ->where('id_post',$idBerita)->get();
 
         $post = Posting::find($idBerita);
-        $post->views=$oldValue + 1;
+        $post->views=$oldValue[0]->views + 1;
         $post->save();
 
         $visitor = DB::table('t_visitor')->count();

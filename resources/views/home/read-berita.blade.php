@@ -9,8 +9,8 @@
                         <div class="col-md-12">
                             <div class="panel panel-default panel-sharp">
                                 <div class="panel-body panel-custom">
-                                    <div class="col-md-12 panel-img text-center">
-                                        <img alt src="{{asset('storage'.$b->link_gambar)}}" style="height: 270px; margin: 10px;"/>
+                                    <div class="col-md-12 panel-img">
+                                        <center><img src="{{ (!empty($b->link_gambar) ? asset('storage'.$b->link_gambar) : asset('images/placeholder.jpg')) }}" class="img-responsive" style="height: 270px; margin: 10px;"/></center>
                                     </div>
                                 </br>
                                     <div class="col-md-12">

@@ -2,7 +2,7 @@
 
 @section('main')
     <div class="container" style="padding: 4em;">
-        <h4 class="text-center" style="font-weight: bold">Pelatihan di Kantor Sendiri (PKS)/PPM</h4>
+        <h4 class="text-center" style="font-weight: bold">Pelatihan di Kantor Sendiri (PKS)/PPMph</h4>
         &nbsp;
         <div class="row text-center">
             @foreach($pks as $p)

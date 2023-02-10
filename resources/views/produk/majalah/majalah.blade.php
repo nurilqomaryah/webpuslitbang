@@ -9,9 +9,9 @@
             @if($loop->iteration % 4 == 0 || $loop->iteration == 0)
                 <div class="row">
             @endif
-                <div class="col-md-3">
+                <div class="col-md-3 text-center" style="padding-top: 2em;">
                     <img src="{{asset('storage'.$m->link_gambar)}}" style="width: 60%;">
-                    <h5 style="color: #0c0c0c; font-weight: bold; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;">{{$m->judul_post}}</h5>
+                    <h5 style="color: #0c0c0c; font-weight: bold; font-family: Helvetica Neue", Helvetica, Arial, sans-serif;">{{$m->judul_post}}</h5>
                     <a href="{{$m->link_post}}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Unduh Majalah</button></a>
                 </div>
             @if($loop->iteration % 4 == 0 || $loop->iteration == 0)
